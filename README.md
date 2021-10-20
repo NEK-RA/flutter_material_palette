@@ -2,6 +2,8 @@
 
 A color palette from Flutter's predefined material colors. Yes, yet another color palette.
 
+![project demo gif](demo.gif)
+
 ## Warning
 
 I'm using this project to learn Flutter and few related packages. That's why something may be wrong or anything else. If you found anything like that - welcome to issues :)
