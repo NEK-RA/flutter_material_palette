@@ -74,6 +74,9 @@ class ColorCard extends StatelessWidget {
 
   String snackbarMessage(){
     String message = 'HEX value of color: ';
+    if(isAccent){
+      message += 'Accent ';
+    }
     message += ColorPalette.getReadableColorName(color: name);
     message += '\'s shade $shade copied to clipboard';
     return message;
