@@ -4,6 +4,7 @@ class SettingsKeys {
   static const String colorsListViewKey = 'colorsListView';
   static const String shadesListViewKey = 'shadesListView';
   static const String darkThemeKey = 'darkTheme';
+  static const String columnsInGridKey= 'columnsInGrid';
 }
 
 class SharedSettings{
@@ -22,4 +23,7 @@ class SharedSettings{
 
   bool get darkTheme => prefs.getBool(SettingsKeys.darkThemeKey) ?? true;
   set darkTheme(bool value) => prefs.setBool(SettingsKeys.darkThemeKey, value);
+
+  int get columnsInGrid => prefs.getInt(SettingsKeys.columnsInGridKey) ?? 2;
+  set columnsInGrid(int value) => (value==2 || value ==3) ? prefs.setInt(SettingsKeys.columnsInGridKey, value) : prefs.setInt(SettingsKeys.columnsInGridKey, 2);
 }

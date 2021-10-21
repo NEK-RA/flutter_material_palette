@@ -19,12 +19,8 @@ class PalettePage extends StatelessWidget {
         centerTitle: true,
         actions: [
           IconButton(
-            onPressed: () => context.read<SettingsCubit>().switchTheme(),
-            icon: BlocBuilder<SettingsCubit,SettingsState>(
-              builder: (context, state){
-                return Icon(state.darkTheme ? Icons.wb_sunny : Icons.nightlight);
-              },
-            )
+            onPressed: () => context.router.pushNamed('/settings'),
+            icon: const Icon(Icons.settings)
           )
         ],
       ),
@@ -34,6 +30,7 @@ class PalettePage extends StatelessWidget {
         }
       ),
       floatingActionButton: FloatingActionButton(
+        tooltip: 'Switch view ( list / grid )',
         child: BlocBuilder<SettingsCubit,SettingsState>(
           builder: (context, state){
             return Icon(
@@ -48,11 +45,11 @@ class PalettePage extends StatelessWidget {
     );
   }
 
-  List<Widget> colorCardList(BuildContext context){
+  List<Widget> colorCardList(BuildContext context,bool vertical){
     return <Widget>[
       for (String color in ColorPalette.colors.keys)
         GestureDetector(
-          child: ColorCard(name: color),
+          child: ColorCard(name: color,isVertical: vertical),
           onTap: (){
             AutoRouter.of(context).pushNamed('/color/$color');
           }
@@ -63,16 +60,18 @@ class PalettePage extends StatelessWidget {
   Widget _buildListView(BuildContext context) {
     return ListView(
       padding: const EdgeInsets.all(8.0),
-      children: colorCardList(context)
+      children: colorCardList(context,false)
     );
   }
 
   Widget _buildGridView(BuildContext context) {
+    int itemCount = context.read<SettingsCubit>().state.columnsInGrid;
+    double ratio = itemCount == 2 ? 2.0 : 1.3;
     return GridView.count(
-      crossAxisCount: 2,
-      childAspectRatio: 2.0,
+      crossAxisCount: itemCount,
+      childAspectRatio: ratio,
       padding: const EdgeInsets.all(8.0),
-      children: colorCardList(context)
+      children: colorCardList(context,true)
     );
   }
 }

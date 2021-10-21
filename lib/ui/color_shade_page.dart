@@ -18,25 +18,16 @@ class ColorShadesPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Shades of $colorName'),
+        title: Text('Shades of ${ColorPalette.getReadableColorName(color: colorName)}'),
         centerTitle: true,
-        actions: [
-          IconButton(
-            onPressed: () => context.read<SettingsCubit>().switchTheme(),
-            icon: BlocBuilder<SettingsCubit,SettingsState>(
-              builder: (context, state){
-                return Icon(state.darkTheme ? Icons.wb_sunny : Icons.nightlight);
-              },
-            )
-          )
-        ],
       ),
       body: BlocBuilder<SettingsCubit, SettingsState>(
         builder: (context, state) {
-          return state.shadesListView ? _buildListView() : _buildGridView();
+          return state.shadesListView ? _buildListView() : _buildGridView(context);
         },
       ),
       floatingActionButton: FloatingActionButton(
+        tooltip: 'Switch view ( list / grid )',
         child: BlocBuilder<SettingsCubit, SettingsState>(
           builder: (context, state) {
             return Icon(state.shadesListView ? Icons.grid_view_sharp : Icons.list);
@@ -58,10 +49,17 @@ class ColorShadesPage extends StatelessWidget {
               shade: shade,
               withHex: true,
               isAccent: true,
-              isVertical: vertical),
+              isVertical: vertical,
+              pressable: true,
+          ),
       for (int shade in ColorPalette.shades)
         ColorCard(
-            name: colorName, shade: shade, withHex: true, isVertical: vertical)
+            name: colorName,
+            shade: shade,
+            withHex: true,
+            isVertical: vertical,
+            pressable: true,
+        )
     ];
   }
 
@@ -72,10 +70,12 @@ class ColorShadesPage extends StatelessWidget {
     );
   }
 
-  Widget _buildGridView() {
+  Widget _buildGridView(BuildContext context) {
+    int itemCount = context.read<SettingsCubit>().state.columnsInGrid;
+    double ratio = itemCount == 2 ? 1.5 : 1.0;
     return GridView.count(
-        crossAxisCount: 2,
-        childAspectRatio: 1.5,
+      crossAxisCount: itemCount,
+      childAspectRatio: ratio,
         padding: const EdgeInsets.all(8.0),
         children: colorCardList(vertical: true));
   }

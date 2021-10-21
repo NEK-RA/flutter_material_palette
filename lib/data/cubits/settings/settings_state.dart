@@ -5,6 +5,7 @@ abstract class SettingsState {
   abstract final bool colorsListView;
   abstract final bool shadesListView;
   abstract final bool darkTheme;
+  abstract final int columnsInGrid;
 }
 
 class SettingsInitial extends SettingsState {
@@ -19,9 +20,11 @@ class SettingsInitial extends SettingsState {
   bool get shadesListView => settings.shadesListView;
   @override
   bool get darkTheme => settings.darkTheme;
+  @override
+  int get columnsInGrid => settings.columnsInGrid;
 
   @override
-  int get hashCode => colorsListView.hashCode ^ shadesListView.hashCode ^ darkTheme.hashCode;
+  int get hashCode => colorsListView.hashCode ^ shadesListView.hashCode ^ darkTheme.hashCode ^ columnsInGrid.hashCode;
   @override
   bool operator ==(Object other){
     if(identical(this, other)){
@@ -43,9 +46,11 @@ class SettingsChanged extends SettingsState{
   bool get shadesListView => settings.shadesListView;
   @override
   bool get darkTheme => settings.darkTheme;
+  @override
+  int get columnsInGrid => settings.columnsInGrid;
 
   @override
-  int get hashCode => colorsListView.hashCode ^ shadesListView.hashCode ^ darkTheme.hashCode;
+  int get hashCode => colorsListView.hashCode ^ shadesListView.hashCode ^ darkTheme.hashCode ^ columnsInGrid.hashCode;
   @override
   bool operator ==(Object other){
     if(identical(this, other)){

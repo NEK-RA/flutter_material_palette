@@ -10,15 +10,14 @@ void main() async {
   runApp(MyApp(prefs: sharedPreferences));
 }
 
-ThemeData lightIndigo = ThemeData.light().copyWith(
+class MyApp extends StatelessWidget {
+  final _appRouter = AppRouter();
+  final ThemeData lightIndigo = ThemeData.light().copyWith(
     colorScheme: ThemeData.light().colorScheme.copyWith(
       primary: Colors.indigo,
       secondary: Colors.indigoAccent,
     )
   );
-
-class MyApp extends StatelessWidget {
-  final _appRouter = AppRouter();
   final SharedPreferences prefs;
 
   MyApp({Key? key, required this.prefs}) : super(key: key);

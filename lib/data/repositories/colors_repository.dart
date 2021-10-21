@@ -38,6 +38,16 @@ class ColorPalette{
     }
   }
 
+  static String getReadableColorName({
+    required String color
+  }){
+    if(_colorNamesReadable.containsKey(color)){
+      return _colorNamesReadable[color]!;
+    }else{
+      return 'Incorrect color requested';
+    }
+  }
+
   static const List<int> _shades = [
     50,
     100,
@@ -97,6 +107,28 @@ class ColorPalette{
     'amber': Colors.amberAccent,
     'orange': Colors.orangeAccent,
     'deepOrange': Colors.deepOrangeAccent
+  };
+
+  static const Map<String,String> _colorNamesReadable = {
+    'red': 'Red',
+    'pink': 'Pink',
+    'purple': 'Purple',
+    'deepPurple': 'Deep Purple',
+    'indigo': 'Indigo',
+    'blue': 'Blue',
+    'lightBlue': 'Light Blue',
+    'cyan': 'Cyan',
+    'teal': 'Teal',
+    'green': 'Green',
+    'lightGreen': 'Light Green',
+    'lime': 'Lime',
+    'yellow': 'Yellow',
+    'amber': 'Amber',
+    'orange': 'Orange',
+    'deepOrange': 'Deep Orange',
+    'brown': 'Brown',
+    'grey': 'Grey',
+    'blueGrey': 'Blue Grey'
   };
 
 } 

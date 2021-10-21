@@ -21,13 +21,14 @@ I'm using this project to learn Flutter and few related packages. That's why som
 
 ### Next steps
 
-- [ ] Copy HEX value of color when pressing concrete shade
-- [ ] Add "Settings" page with switches for settings
-- [ ] Check if grid with 3 columns will work nice. If yes, then add ability to increase columns count in settings.
-- [ ] Add "About" page or probably add such section into settings
+- [x] ~~Copy HEX value of color when pressing concrete shade~~ Done, showing 3sec snackbar notification after copying
+- [x] ~~Add "Settings" page with switches for settings~~ Settings can be opened from colors screen by settings button in the app bar
+- [x] ~~Check if grid with 3 columns will work nice. If yes, then add ability to increase columns count in settings~~ In settings can be changed by slider. Now values limited between 2 and 3
+- [x] ~~Add "About" page or probably add such section into settings~~ "About" added into Settings screen.
 - [ ] Add support for few languages by official [flutter_localizations](https://flutter.dev/docs/development/accessibility-and-localization/internationalization) package
-- [ ] Add update checks with [http](https://pub.dev/packages/http) package
 - [ ] Create an icon for the app
+- [ ] Add update checks with [http](https://pub.dev/packages/http) package
+- [ ] Add [url_launcher](https://pub.dev/packages/url_launcher) package to be able forward user to browser for the specified url (repo url, update url and etc)
 - [ ] Instead of copying HEX value, open dialog where few next color's representations will be shown:
 
   - HEX value
