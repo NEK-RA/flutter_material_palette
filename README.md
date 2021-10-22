@@ -35,5 +35,6 @@ I'm using this project to learn Flutter and few related packages. That's why som
   - RGB value with alpha channel value
   - Flutter's variable (i.e. `Colors.red[400]` or `Colors.blueGrey.shade500`)
 
+- [ ] **IMOPRTANT** learn testing
 - [ ] **Probably** add screen with RGB selector (sliders for ARGB channels)
 - [ ] **Probably** add screen for "Collections" where user can create a named folder and add into it some colors with giving them any meaningfull name. And for persistent storage probably use sqlite database
