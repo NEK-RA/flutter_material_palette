@@ -1,8 +1,12 @@
-import 'package:color_palette/data/cubits/settings/settings_cubit.dart';
+import 'package:color_palette/l10n/locales.dart';
 import 'package:flutter/material.dart';
-import 'package:color_palette/routes/router.gr.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
+
 import 'package:shared_preferences/shared_preferences.dart';
+
+import 'package:color_palette/data/cubits/settings/settings_cubit.dart';
+import 'package:color_palette/routes/router.gr.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -29,10 +33,13 @@ class MyApp extends StatelessWidget {
       child: BlocBuilder<SettingsCubit, SettingsState>(
         builder: (context, state) {
           return MaterialApp.router(
+            title: 'Color Palette' ,
             debugShowCheckedModeBanner: false,
             routeInformationParser: _appRouter.defaultRouteParser(),
             routerDelegate: _appRouter.delegate(),
             theme: state.darkTheme ? ThemeData.dark() : lightIndigo,
+            localizationsDelegates: AppLocalizations.localizationsDelegates,
+            supportedLocales: AppLocalizations.supportedLocales,
           );
         },
       ),

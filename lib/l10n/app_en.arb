@@ -1,0 +1,311 @@
+{
+    "baseColors": "Base colors",
+    "@baseColors": {
+      "description": "Title for the app bar on palette_page.dart"
+    },
+
+    "shades": "Shades",
+    "@shades": {
+      "description": "Part of title for the app bar on color_shade_page.dart, another part is in the end of localization file for all the colors in form 'ofNameColor'"
+    },
+
+    "shade": "shade",
+    "@shade": {
+      "description": "'shade' word used inside color_card.dart"
+    },
+
+    "hexValueOfColorString": "HEX value of color",
+    "@hexValueOfColorString": {
+      "description": "Part of snackbar message for copying color code"
+    },
+
+    "copiedToClipboardString": "copied to clipboard",
+    "@copiedToClipboardString": {
+      "description": "The last part of snackbar message for copying color code"
+    },
+
+    "switchViewTooltip": "Switch view ( list / grid )",
+    "@switchViewTooltip": {
+      "description": "Icon button's hint on both palette_page.dart and color_shade_page.dart"
+    },
+
+    "settings": "Settings",
+    "@settings": {
+      "description": "The 'Settings' word, used on settings_page.dart"
+    },
+
+    "about": "About",
+    "@about": {
+      "description": "The 'About' word, used in settings_page.dart"
+    },
+
+    "listOnColorsScreenSettingTitle": "Display list on colors screen",
+    "@listOnColorsScreenSettingTitle": {
+      "description": "Label for the switch on the settings_page.dart"
+    },
+
+    "listOnColorsScreenSettingSubtitleForEnabled": "Colors are shown as list",
+    "@listOnColorsScreenSettingSubtitleForEnabled": {
+      "description": "Subtitle of setting which switching between list and grid view for colors. Case of list view enabled."
+    },
+
+    "listOnColorsScreenSettingSubtitleForDisabled": "Colors are shown as grid",
+    "@listOnColorsScreenSettingSubtitleForDisabled": {
+      "description": "Subtitle of setting which switching between list and grid view for colors. Case of list view disabled."
+    },
+
+    "listOnShadesScreenSettingTitle": "Display list on shades screen",
+    "@listOnShadesScreenSettingTitle": {
+      "description": "Label for the switch on the settings_page.dart"
+    },
+
+    "listOnShadesScreenSettingSubtitleForEnabled": "Shades are shown as list",
+    "@listOnShadesScreenSettingSubtitleForEnabled": {
+      "description": "Subtitle of setting which switching between list and grid view for shades. Case of list view enabled."
+    },
+
+    "listOnShadesScreenSettingSubtitleForDisabled": "Shades are shown as grid",
+    "@listOnShadesScreenSettingSubtitleForDisabled": {
+      "description": "Subtitle of setting which switching between list and grid view for shades. Case of list view disabled."
+    },
+
+    "darkThemeSettingTitle": "Dark theme",
+    "@darkThemeSettingTitle": {
+      "description": "Title of theme switcher"
+    },
+
+    "darkThemeSettingSubtitle": "Switch between dark and light themes, the default theme is dark",
+    "@darkThemeSettingSubtitle": {
+      "description": "Subtitle of theme switcher"
+    },
+
+    "columnCountSettingTitle": "Column count",
+    "@columnCountSettingTitle": {
+      "description": "Title of setting which allow to change column count in the grid view"
+    },
+
+    "columnCountSettingSubtitle": "Currently between 2 and 3 only, used for both colors and shades grid",
+    "@columnCountSettingSubtitle": {
+      "description": "Title of setting which allow to change column count in the grid view"
+    },
+
+    "aboutAppHomepage": "App homepage",
+    "@aboutAppHomepage": {
+      "description": "Title of ListTile, which contains link to github repo as subtitle. Used on the settings_page.dart inside of about() function"
+    },
+
+    "aboutAppVersionTitle": "Version",
+    "@aboutAppVersionTitle": {
+      "description": "The 'Version' word used in the 'About' section of settings_page.dart, title of corresponding ListTile"
+    },
+
+    "aboutAppVersionSubtitle": "Tap here to check for updates",
+    "@aboutAppVersionSubtitle": {
+      "description": "Subtitle of ListTile related to app version."
+    },
+
+    "notImplementedString": "NOT IMPLEMENTED YET",
+    "@notImplementedString": {
+      "description": "String to put into snackbars or somewhere else to notify user that some feature is not implemented yet."
+    },
+
+    "incorrectColorNameString": "Incorrect color name!",
+    "@incorrectColorNameString": {
+      "description": "Used in colors_repository.dart when no color found in created maps"
+    },
+
+    "accent": "Accent",
+    "@": {
+      "description": "'Accent' word used inside color_card.dart"
+    },
+
+    "redColor": "Red",
+    "@redColor": {
+      "description": "readable color name of red"
+    },
+
+    "ofRedColor": "of Red",
+    "@ofRedColor": {
+      "description": "form of name for using in app bar on the color_shade_page.dart"
+    },
+
+    "pinkColor": "Pink",
+    "@pinkColor": {
+      "description": "readable color name of pink"
+    },
+
+    "ofPinkColor": "of pink",
+    "@": {
+      "description": "form of name for using in app bar on the color_shade_page.dart"
+    },
+
+    "purpleColor": "Purple",
+    "@": {
+      "description": "readable color name of purple"
+    },
+
+    "ofPurpleColor": "of purple",
+    "@": {
+      "description": "form of name for using in app bar on the color_shade_page.dart"
+    },
+
+    "deepPurpleColor": "Deep Purple",
+    "@": {
+      "description": "readable color name of deep purple"
+    },
+
+    "ofDeepPurpleColor": "of deep purple",
+    "@": {
+      "description": "form of name for using in app bar on the color_shade_page.dart"
+    },
+
+    "indigoColor": "Indigo",
+    "@": {
+      "description": "readable color name of indigo"
+    },
+
+    "ofIndigoColor": "of indigo",
+    "@": {
+      "description": "form of name for using in app bar on the color_shade_page.dart"
+    },
+
+    "blueColor": "Blue",
+    "@": {
+      "description": "readable color name of blue"
+    },
+
+    "ofBlueColor": "of blue",
+    "@": {
+      "description": "form of name for using in app bar on the color_shade_page.dart"
+    },
+
+    "lightBlueColor": "Light Blue",
+    "@": {
+      "description": "readable color name of light blue"
+    },
+
+    "ofLightBlueColor": "of light blue",
+    "@": {
+      "description": "form of name for using in app bar on the color_shade_page.dart"
+    },
+
+    "cyanColor": "Cyan",
+    "@": {
+      "description": "readable color name of cyan"
+    },
+
+    "ofCyanColor": "of cyan",
+    "@": {
+      "description": "form of name for using in app bar on the color_shade_page.dart"
+    },
+
+    "tealColor": "Teal",
+    "@": {
+      "description": "readable color name of teal"
+    },
+
+    "ofTealColor": "of teal",
+    "@": {
+      "description": "form of name for using in app bar on the color_shade_page.dart"
+    },
+
+    "greenColor": "Green",
+    "@": {
+      "description": "readable color name of green"
+    },
+
+    "ofGreenColor": "of green",
+    "@": {
+      "description": "form of name for using in app bar on the color_shade_page.dart"
+    },
+
+    "lightGreenColor": "Light Green",
+    "@": {
+      "description": "readable color name of light green"
+    },
+
+    "ofLightGreenColor": "of light green",
+    "@": {
+      "description": "form of name for using in app bar on the color_shade_page.dart"
+    },
+
+    "limeColor": "Lime",
+    "@": {
+      "description": "readable color name of lime"
+    },
+
+    "ofLimeColor": "of lime",
+    "@": {
+      "description": "form of name for using in app bar on the color_shade_page.dart"
+    },
+
+    "yellowColor": "Yellow",
+    "@": {
+      "description": "readable color name of yellow"
+    },
+
+    "ofYellowColor": "of yellow",
+    "@": {
+      "description": "form of name for using in app bar on the color_shade_page.dart"
+    },
+
+    "amberColor": "Amber",
+    "@": {
+      "description": "readable color name of amber"
+    },
+
+    "ofAmberColor": "of amber",
+    "@": {
+      "description": "form of name for using in app bar on the color_shade_page.dart"
+    },
+
+    "orangeColor": "Orange",
+    "@": {
+      "description": "readable color name of orange"
+    },
+
+    "ofOrangeColor": "of orange",
+    "@": {
+      "description": "form of name for using in app bar on the color_shade_page.dart"
+    },
+
+    "deepOrangeColor": "Deep Orange",
+    "@": {
+      "description": "readable color name of deep orange"
+    },
+
+    "ofDeepOrangeColor": "of deep orange",
+    "@": {
+      "description": "form of name for using in app bar on the color_shade_page.dart"
+    },
+
+    "brownColor": "Brown",
+    "@": {
+      "description": "readable color name of brown"
+    },
+
+    "ofBrownColor": "of brown",
+    "@": {
+      "description": "form of name for using in app bar on the color_shade_page.dart"
+    },
+
+    "greyColor": "Grey",
+    "@": {
+      "description": "readable color name of grey"
+    },
+
+    "ofGreyColor": "of grey",
+    "@": {
+      "description": "form of name for using in app bar on the color_shade_page.dart"
+    },
+
+    "blueGreyColor": "Blue Grey",
+    "@": {
+      "description": "readable color name of blue grey"
+    },
+
+    "ofBlueGreyColor": "of blue grey",
+    "@": {
+      "description": "form of name for using in app bar on the color_shade_page.dart"
+    }
+}

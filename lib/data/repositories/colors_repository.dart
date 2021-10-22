@@ -1,4 +1,5 @@
-import 'package:flutter/material.dart' show Colors, Color, MaterialColor, MaterialAccentColor;
+import 'package:color_palette/l10n/locales.dart';
+import 'package:flutter/material.dart' show Colors, Color, MaterialColor, MaterialAccentColor, BuildContext;
 
 class ColorPalette{
 
@@ -15,6 +16,8 @@ class ColorPalette{
   static Map<String, MaterialAccentColor> get accentColors => _accentColors;
 
   static bool hasAccentColor(String color) => !['brown','grey','blueGrey'].contains(color) ;
+
+  static AppLocalizations _lc(BuildContext context) => AppLocalizations.of(context)!;
 
   static Color getColor({
     required String color,
@@ -39,12 +42,25 @@ class ColorPalette{
   }
 
   static String getReadableColorName({
-    required String color
+    required String color,
+    required BuildContext context,
+    bool caseOfColor = false,
+    
   }){
-    if(_colorNamesReadable.containsKey(color)){
-      return _colorNamesReadable[color]!;
+    if(!caseOfColor){
+      var names = _colorNamesReadable(context);
+      if(names.containsKey(color)){
+        return names[color]!;
+      }else{
+        return _lc(context).incorrectColorNameString;
+      }
     }else{
-      return 'Incorrect color requested';
+      var names = _caseOfColorNamesReadable(context);
+      if(names.containsKey(color)){
+        return names[color]!;
+      }else{
+        return _lc(context).incorrectColorNameString;
+      }
     }
   }
 
@@ -109,26 +125,52 @@ class ColorPalette{
     'deepOrange': Colors.deepOrangeAccent
   };
 
-  static const Map<String,String> _colorNamesReadable = {
-    'red': 'Red',
-    'pink': 'Pink',
-    'purple': 'Purple',
-    'deepPurple': 'Deep Purple',
-    'indigo': 'Indigo',
-    'blue': 'Blue',
-    'lightBlue': 'Light Blue',
-    'cyan': 'Cyan',
-    'teal': 'Teal',
-    'green': 'Green',
-    'lightGreen': 'Light Green',
-    'lime': 'Lime',
-    'yellow': 'Yellow',
-    'amber': 'Amber',
-    'orange': 'Orange',
-    'deepOrange': 'Deep Orange',
-    'brown': 'Brown',
-    'grey': 'Grey',
-    'blueGrey': 'Blue Grey'
-  };
+  static Map<String,String> _colorNamesReadable(BuildContext context){
+    return {
+      'red': _lc(context).redColor,
+      'pink': _lc(context).pinkColor,
+      'purple': _lc(context).purpleColor,
+      'deepPurple': _lc(context).deepPurpleColor,
+      'indigo': _lc(context).indigoColor,
+      'blue': _lc(context).blueColor,
+      'lightBlue': _lc(context).lightBlueColor,
+      'cyan': _lc(context).cyanColor,
+      'teal': _lc(context).tealColor,
+      'green': _lc(context).greenColor,
+      'lightGreen': _lc(context).lightGreenColor,
+      'lime': _lc(context).limeColor,
+      'yellow': _lc(context).yellowColor,
+      'amber': _lc(context).amberColor,
+      'orange': _lc(context).orangeColor,
+      'deepOrange': _lc(context).deepOrangeColor,
+      'brown': _lc(context).brownColor,
+      'grey': _lc(context).greyColor,
+      'blueGrey': _lc(context).blueGreyColor
+    };
+  }
+
+  static Map<String,String> _caseOfColorNamesReadable(BuildContext context){
+    return {
+      'red': _lc(context).ofRedColor,
+      'pink': _lc(context).ofPinkColor,
+      'purple': _lc(context).ofPurpleColor,
+      'deepPurple': _lc(context).ofDeepPurpleColor,
+      'indigo': _lc(context).ofIndigoColor,
+      'blue': _lc(context).ofBlueColor,
+      'lightBlue': _lc(context).ofLightBlueColor,
+      'cyan': _lc(context).ofCyanColor,
+      'teal': _lc(context).ofTealColor,
+      'green': _lc(context).ofGreenColor,
+      'lightGreen': _lc(context).ofLightGreenColor,
+      'lime': _lc(context).ofLimeColor,
+      'yellow': _lc(context).ofYellowColor,
+      'amber': _lc(context).ofAmberColor,
+      'orange': _lc(context).ofOrangeColor,
+      'deepOrange': _lc(context).ofDeepOrangeColor,
+      'brown': _lc(context).ofBrownColor,
+      'grey': _lc(context).ofGreyColor,
+      'blueGrey': _lc(context).ofBlueGreyColor
+    };
+  }
 
 } 

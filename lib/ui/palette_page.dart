@@ -1,7 +1,9 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:color_palette/l10n/locales.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
 
 import 'package:color_palette/data/cubits/settings/settings_cubit.dart';
 import 'package:color_palette/data/repositories/colors_repository.dart';
@@ -11,14 +13,31 @@ import 'package:color_palette/widgets/color_card.dart';
 class PalettePage extends StatelessWidget {
   const PalettePage({Key? key}) : super(key: key);
 
+  AppLocalizations lc(BuildContext context) => AppLocalizations.of(context)!; 
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Base colors'),
+        title: Text(lc(context).baseColors),
         centerTitle: true,
         actions: [
           IconButton(
+            tooltip: lc(context).switchViewTooltip,
+            icon: BlocBuilder<SettingsCubit,SettingsState>(
+              builder: (context, state){
+                return Icon(
+                  state.colorsListView? Icons.grid_view_sharp : Icons.list
+                );
+              },
+            ),
+            onPressed: (){
+              context.read<SettingsCubit>().switchColorsView();
+            },
+          ),
+          const SizedBox(width: 20),
+          IconButton(
+            tooltip: lc(context).settings,
             onPressed: () => context.router.pushNamed('/settings'),
             icon: const Icon(Icons.settings)
           )
@@ -28,20 +47,7 @@ class PalettePage extends StatelessWidget {
         builder: (context, state){
           return state.colorsListView ? _buildListView(context) : _buildGridView(context);
         }
-      ),
-      floatingActionButton: FloatingActionButton(
-        tooltip: 'Switch view ( list / grid )',
-        child: BlocBuilder<SettingsCubit,SettingsState>(
-          builder: (context, state){
-            return Icon(
-              state.colorsListView? Icons.grid_view_sharp : Icons.list
-            );
-          },
-        ),
-        onPressed: (){
-          context.read<SettingsCubit>().switchColorsView();
-        },
-      ),
+      )
     );
   }
 

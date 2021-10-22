@@ -1,4 +1,5 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:color_palette/l10n/locales.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -14,27 +15,46 @@ class ColorShadesPage extends StatelessWidget {
       {Key? key, @PathParam('colorName') required this.colorName})
       : super(key: key);
 
+  AppLocalizations lc(BuildContext context) => AppLocalizations.of(context)!; 
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Shades of ${ColorPalette.getReadableColorName(color: colorName)}'),
+        title: Text(
+          lc(context).shades + ' ' +
+          ColorPalette.getReadableColorName(
+            color: colorName,
+            context: context,
+            caseOfColor: true
+          )
+        ),
         centerTitle: true,
+        actions: [
+          IconButton(
+            tooltip: lc(context).switchViewTooltip,
+            icon: BlocBuilder<SettingsCubit,SettingsState>(
+              builder: (context, state){
+                return Icon(
+                  state.shadesListView? Icons.grid_view_sharp : Icons.list
+                );
+              },
+            ),
+            onPressed: (){
+              context.read<SettingsCubit>().switchShadesView();
+            },
+          ),
+          const SizedBox(width: 20),
+          IconButton(
+            tooltip: lc(context).settings,
+            onPressed: () => context.router.pushNamed('/settings'),
+            icon: const Icon(Icons.settings)
+          )
+        ],
       ),
       body: BlocBuilder<SettingsCubit, SettingsState>(
         builder: (context, state) {
           return state.shadesListView ? _buildListView() : _buildGridView(context);
-        },
-      ),
-      floatingActionButton: FloatingActionButton(
-        tooltip: 'Switch view ( list / grid )',
-        child: BlocBuilder<SettingsCubit, SettingsState>(
-          builder: (context, state) {
-            return Icon(state.shadesListView ? Icons.grid_view_sharp : Icons.list);
-          },
-        ),
-        onPressed: () {
-          context.read<SettingsCubit>().switchShadesView();
         },
       ),
     );
