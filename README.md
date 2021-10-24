@@ -2,8 +2,6 @@
 
 A color palette from Flutter's predefined material colors. Yes, yet another color palette.
 
-![project demo gif](demo.gif)
-
 ## Warning
 
 I'm using this project to learn Flutter and few related packages. That's why something may be wrong or anything else. If you found anything like that - welcome to issues :)
@@ -26,8 +24,8 @@ I'm using this project to learn Flutter and few related packages. That's why som
 - [x] ~~Check if grid with 3 columns will work nice. If yes, then add ability to increase columns count in settings~~ In settings can be changed by slider. Now values limited between 2 and 3
 - [x] ~~Add "About" page or probably add such section into settings~~ "About" added into Settings screen.
 - [x] Add support for few languages by official [flutter_localizations](https://flutter.dev/docs/development/accessibility-and-localization/internationalization) package
-- [ ] Create an icon for the app
-- [ ] Add ability to specify language in settings
+- [x] Create an icon for the app
+- [x] Add ability to specify language in settings
 - [ ] Add update checks with [http](https://pub.dev/packages/http) package
 - [ ] Add [url_launcher](https://pub.dev/packages/url_launcher) package to be able forward user to browser for the specified url (repo url, update url and etc)
 - [ ] Instead of copying HEX value, open dialog where few next color's representations will be shown:
