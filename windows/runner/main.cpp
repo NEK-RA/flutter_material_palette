@@ -27,7 +27,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE instance, _In_opt_ HINSTANCE prev,
   FlutterWindow window(project);
   Win32Window::Point origin(100, 50);
   Win32Window::Size size(480, 640);
-  if (!window.CreateAndShow(L"color_palette", origin, size)) {
+  if (!window.CreateAndShow(L"Material Colors Palette", origin, size)) {
     return EXIT_FAILURE;
   }
   window.SetQuitOnClose(true);
