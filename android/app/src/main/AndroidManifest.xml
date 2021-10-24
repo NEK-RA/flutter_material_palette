@@ -1,6 +1,13 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="io.github.nek_ra.material_palette">
-   <application
+    <queries>
+      <!-- To open https URLs -->
+      <intent>
+        <action android:name="android.intent.action.VIEW" />
+        <data android:scheme="https" />
+      </intent>
+    </queries>
+    <application
         android:label="Material Palette"
         android:icon="@mipmap/ic_launcher">
         <activity
