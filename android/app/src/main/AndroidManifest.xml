@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="io.github.nek_ra.color_palette">
    <application
-        android:label="color_palette"
+        android:label="Material Palette"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"
