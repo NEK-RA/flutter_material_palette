@@ -1,6 +1,6 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:color_palette/data/cubits/settings/settings_cubit.dart';
-import 'package:color_palette/l10n/locales.dart';
+import 'package:material_palette/data/cubits/settings/settings_cubit.dart';
+import 'package:material_palette/l10n/locales.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -145,7 +145,7 @@ class SettingsPage extends StatelessWidget {
       children: [
         ListTile(
           title: Text(lc(context).aboutAppHomepage),
-          subtitle: const Text('https://github.com/NEK-RA/flutter_color_palette'),
+          subtitle: const Text('https://github.com/NEK-RA/flutter_material_palette'),
           leading: const Icon(Icons.home),
         ),
         const Divider(),

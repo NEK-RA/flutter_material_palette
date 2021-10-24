@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.15)
-project(color_palette LANGUAGES CXX)
+project(material_palette LANGUAGES CXX)
 
-set(BINARY_NAME "color_palette")
+set(BINARY_NAME "material_palette")
 
 cmake_policy(SET CMP0063 NEW)
 

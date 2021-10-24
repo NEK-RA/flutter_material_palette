@@ -1,4 +1,4 @@
-package io.github.nek_ra.color_palette
+package io.github.nek_ra.material_palette
 
 import io.flutter.embedding.android.FlutterActivity
 

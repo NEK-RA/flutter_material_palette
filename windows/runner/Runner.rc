@@ -89,13 +89,13 @@ BEGIN
     BEGIN
         BLOCK "040904e4"
         BEGIN
-            VALUE "CompanyName", "io.github.nek_ra" "\0"
+            VALUE "CompanyName", "https://nek-ra.github.io" "\0"
             VALUE "FileDescription", "A color palette from flutter's predefined material colors" "\0"
             VALUE "FileVersion", VERSION_AS_STRING "\0"
-            VALUE "InternalName", "color_palette" "\0"
-            VALUE "LegalCopyright", "Copyright (C) 2021 io.github.nek_ra. All rights reserved." "\0"
-            VALUE "OriginalFilename", "color_palette.exe" "\0"
-            VALUE "ProductName", "color_palette" "\0"
+            VALUE "InternalName", "material_palette" "\0"
+            VALUE "LegalCopyright", "Copyright (C) 2021 https://nek-ra.github.io. All rights reserved." "\0"
+            VALUE "OriginalFilename", "material_palette.exe" "\0"
+            VALUE "ProductName", "Material Palette" "\0"
             VALUE "ProductVersion", VERSION_AS_STRING "\0"
         END
     END

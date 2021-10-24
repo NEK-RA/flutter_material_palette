@@ -1,6 +1,6 @@
-import 'package:color_palette/l10n/locales.dart';
+import 'package:material_palette/l10n/locales.dart';
 import 'package:flutter/material.dart';
-import 'package:color_palette/data/repositories/colors_repository.dart';
+import 'package:material_palette/data/repositories/colors_repository.dart';
 import 'package:flutter/services.dart';
 
 class ColorCard extends StatelessWidget {

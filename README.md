@@ -1,4 +1,4 @@
-# color_palette
+# material_palette
 
 <img src="media/icon/Icon.svg" alt="app icon" style="width: 256px;" />
 
