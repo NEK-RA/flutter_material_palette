@@ -30,8 +30,8 @@ I'm using this project to learn Flutter and few related packages. That's why som
 - [x] Add support for few languages by official [flutter_localizations](https://flutter.dev/docs/development/accessibility-and-localization/internationalization) package
 - [x] Create an icon for the app
 - [x] Add ability to specify language in settings
+- [x] Add [url_launcher](https://pub.dev/packages/url_launcher) package to be able forward user to browser for the specified url (repo url, update url and etc)
 - [ ] Add update checks with [http](https://pub.dev/packages/http) package
-- [ ] Add [url_launcher](https://pub.dev/packages/url_launcher) package to be able forward user to browser for the specified url (repo url, update url and etc)
 - [ ] Instead of copying HEX value, open dialog where few next color's representations will be shown:
 
   - HEX value
