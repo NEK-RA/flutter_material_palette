@@ -5,6 +5,7 @@ class SettingsKeys {
   static const String shadesListViewKey = 'shadesListView';
   static const String darkThemeKey = 'darkTheme';
   static const String columnsInGridKey= 'columnsInGrid';
+  static const String languageCodeKey = 'languageCode';
 }
 
 class SharedSettings{
@@ -26,4 +27,9 @@ class SharedSettings{
 
   int get columnsInGrid => prefs.getInt(SettingsKeys.columnsInGridKey) ?? 2;
   set columnsInGrid(int value) => (value==2 || value ==3) ? prefs.setInt(SettingsKeys.columnsInGridKey, value) : prefs.setInt(SettingsKeys.columnsInGridKey, 2);
+
+  bool get isLocaleDefined => prefs.containsKey(SettingsKeys.languageCodeKey);
+  String get languageCode => prefs.getString(SettingsKeys.languageCodeKey) ?? 'en';
+  set languageCode(String value) => prefs.setString(SettingsKeys.languageCodeKey, value);
+  void resetLanguage() => prefs.remove(SettingsKeys.languageCodeKey);
 }

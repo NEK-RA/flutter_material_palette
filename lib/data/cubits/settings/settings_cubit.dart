@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:bloc/bloc.dart';
 import 'package:color_palette/data/models/settings.dart';
 import 'package:meta/meta.dart';
@@ -35,6 +37,18 @@ class SettingsCubit extends Cubit<SettingsState> {
   void setColumnsCount(int value){
     SettingsChanged newState = SettingsChanged(prefs);
     newState.settings.columnsInGrid = value;
+    emit(newState);
+  }
+
+  void changeLanguage(String value){
+    SettingsChanged newState = SettingsChanged(prefs);
+    newState.settings.languageCode = value;
+    emit(newState);
+  }
+
+  void useSystemLanguage(){
+    SettingsChanged newState = SettingsChanged(prefs);
+    newState.settings.resetLanguage();
     emit(newState);
   }
 

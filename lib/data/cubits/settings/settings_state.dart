@@ -6,6 +6,8 @@ abstract class SettingsState {
   abstract final bool shadesListView;
   abstract final bool darkTheme;
   abstract final int columnsInGrid;
+  abstract final bool languageChanged;
+  abstract final Locale locale;
 }
 
 class SettingsInitial extends SettingsState {
@@ -22,9 +24,13 @@ class SettingsInitial extends SettingsState {
   bool get darkTheme => settings.darkTheme;
   @override
   int get columnsInGrid => settings.columnsInGrid;
+  @override
+  bool get languageChanged => settings.isLocaleDefined;
+  @override
+  Locale get locale => Locale(settings.languageCode);
 
   @override
-  int get hashCode => colorsListView.hashCode ^ shadesListView.hashCode ^ darkTheme.hashCode ^ columnsInGrid.hashCode;
+  int get hashCode => colorsListView.hashCode ^ shadesListView.hashCode ^ darkTheme.hashCode ^ columnsInGrid.hashCode ^ languageChanged.hashCode ^ locale.hashCode;
   @override
   bool operator ==(Object other){
     if(identical(this, other)){
@@ -48,9 +54,13 @@ class SettingsChanged extends SettingsState{
   bool get darkTheme => settings.darkTheme;
   @override
   int get columnsInGrid => settings.columnsInGrid;
+  @override
+  bool get languageChanged => settings.isLocaleDefined;
+  @override
+  Locale get locale => Locale(settings.languageCode);
 
   @override
-  int get hashCode => colorsListView.hashCode ^ shadesListView.hashCode ^ darkTheme.hashCode ^ columnsInGrid.hashCode;
+  int get hashCode => colorsListView.hashCode ^ shadesListView.hashCode ^ darkTheme.hashCode ^ columnsInGrid.hashCode ^ languageChanged.hashCode ^ locale.hashCode;
   @override
   bool operator ==(Object other){
     if(identical(this, other)){

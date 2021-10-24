@@ -39,6 +39,21 @@
       "description": "The 'About' word, used in settings_page.dart"
     },
 
+    "appLanguageSettingTitle":"App language",
+    "@": {
+      "description": "Title for the app language ListTile in the settings_page.dart"
+    },
+
+    "currentLanguageString":"Current language: ",
+    "@": {
+      "description": "String for the subtitle of ListTile, which contains appLanguageSettingTitle"
+    },
+
+    "systemWordAdjective": "System",
+    "@systemWord": {
+      "description": "The word to be used as name for default language (System language)"
+    },
+
     "listOnColorsScreenSettingTitle": "Display list on colors screen",
     "@listOnColorsScreenSettingTitle": {
       "description": "Label for the switch on the settings_page.dart"

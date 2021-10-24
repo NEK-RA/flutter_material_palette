@@ -33,13 +33,14 @@ class MyApp extends StatelessWidget {
       child: BlocBuilder<SettingsCubit, SettingsState>(
         builder: (context, state) {
           return MaterialApp.router(
-            title: 'Color Palette' ,
+            title: 'Material Palette' ,
             debugShowCheckedModeBanner: false,
             routeInformationParser: _appRouter.defaultRouteParser(),
             routerDelegate: _appRouter.delegate(),
             theme: state.darkTheme ? ThemeData.dark() : lightIndigo,
             localizationsDelegates: AppLocalizations.localizationsDelegates,
             supportedLocales: AppLocalizations.supportedLocales,
+            locale: state.languageChanged ? state.locale : null
           );
         },
       ),

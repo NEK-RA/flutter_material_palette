@@ -1,3 +1,4 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:color_palette/data/cubits/settings/settings_cubit.dart';
 import 'package:color_palette/l10n/locales.dart';
 import 'package:flutter/material.dart';
@@ -30,11 +31,32 @@ class SettingsPage extends StatelessWidget {
 
   AppLocalizations lc(BuildContext context) => AppLocalizations.of(context)!; 
 
+  final Map<String,String> languageNames = const {
+    'ru':'Русский',
+    'en':'English'
+  };
+
+  String getCurrentLanguageName(BuildContext context){
+    String languageCode = Localizations.localeOf(context).languageCode;
+    if(languageNames.containsKey(languageCode)){
+      return languageNames[languageCode]!;
+    }else{
+      return lc(context).systemWordAdjective;
+    }
+  }
+
   Widget settings(BuildContext context){
     return BlocBuilder<SettingsCubit,SettingsState>(
         builder: (context,state){
+          String currentLanguage = state.languageChanged ? getCurrentLanguageName(context) : '${lc(context).systemWordAdjective} (${getCurrentLanguageName(context)})';
           return Column(
             children: [
+              
+              ListTile(
+                title: Text(lc(context).appLanguageSettingTitle),
+                subtitle: Text(lc(context).currentLanguageString + currentLanguage),
+                onTap: () => showLanguagesDialog(context),
+              ),
 
               SwitchListTile(
                 title:Text(
@@ -87,6 +109,35 @@ class SettingsPage extends StatelessWidget {
           );
         }
       );
+  }
+
+  void showLanguagesDialog(BuildContext context) async {
+    String? selectedCode = await showDialog<String>(
+      context: context,
+      builder:(context){
+      return SimpleDialog(
+        title: Text(lc(context).appLanguageSettingTitle),
+        children: [
+          SimpleDialogOption(
+            child: Text(lc(context).systemWordAdjective),
+            onPressed: () => context.router.pop('system'),
+          ),
+          for (var locale in AppLocalizations.supportedLocales)
+            SimpleDialogOption(
+              child: Text(languageNames[locale.languageCode]!),
+              onPressed: () => context.router.pop(locale.languageCode),
+            ),
+        ],
+      );
+    });
+
+    if(selectedCode!=null){
+      if(selectedCode == 'system'){
+        context.read<SettingsCubit>().useSystemLanguage();
+      }else{
+        context.read<SettingsCubit>().changeLanguage(selectedCode);
+      }
+    }
   }
 
   Widget about(BuildContext context){
