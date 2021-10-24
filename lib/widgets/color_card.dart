@@ -1,4 +1,4 @@
-import 'package:material_palette/l10n/locales.dart';
+import 'package:material_palette/locales.dart';
 import 'package:flutter/material.dart';
 import 'package:material_palette/data/repositories/colors_repository.dart';
 import 'package:flutter/services.dart';

@@ -1,4 +1,4 @@
-import 'package:material_palette/l10n/locales.dart';
+import 'package:material_palette/locales.dart';
 import 'package:flutter/material.dart' show Colors, Color, MaterialColor, MaterialAccentColor, BuildContext;
 
 class ColorPalette{
