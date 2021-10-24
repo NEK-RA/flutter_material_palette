@@ -3,6 +3,7 @@ import 'package:material_palette/data/cubits/settings/settings_cubit.dart';
 import 'package:material_palette/locales.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class SettingsPage extends StatelessWidget {
   const SettingsPage({ Key? key }) : super(key: key);
@@ -35,6 +36,8 @@ class SettingsPage extends StatelessWidget {
     'ru':'Русский',
     'en':'English'
   };
+
+  final String homepageUrl = 'https://github.com/NEK-RA/flutter_material_palette';
 
   String getCurrentLanguageName(BuildContext context){
     String languageCode = Localizations.localeOf(context).languageCode;
@@ -145,8 +148,9 @@ class SettingsPage extends StatelessWidget {
       children: [
         ListTile(
           title: Text(lc(context).aboutAppHomepage),
-          subtitle: const Text('https://github.com/NEK-RA/flutter_material_palette'),
+          subtitle: Text(homepageUrl),
           leading: const Icon(Icons.home),
+          onTap: launchHomepage,
         ),
         const Divider(),
         ListTile(
@@ -173,4 +177,7 @@ class SettingsPage extends StatelessWidget {
     );
   }
 
+  void launchHomepage() async {
+    await canLaunch(homepageUrl) ? await launch(homepageUrl) : throw 'Could not launch $homepageUrl';
+  }
 }
