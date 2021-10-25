@@ -27,17 +27,17 @@ I'm using this project to learn Flutter and few related packages. That's why som
 - [x] ~~Add "Settings" page with switches for settings~~ Settings can be opened from colors screen by settings button in the app bar
 - [x] ~~Check if grid with 3 columns will work nice. If yes, then add ability to increase columns count in settings~~ In settings can be changed by slider. Now values limited between 2 and 3
 - [x] ~~Add "About" page or probably add such section into settings~~ "About" added into Settings screen.
-- [x] Add support for few languages by official [flutter_localizations](https://flutter.dev/docs/development/accessibility-and-localization/internationalization) package
-- [x] Create an icon for the app
-- [x] Add ability to specify language in settings
-- [x] Add [url_launcher](https://pub.dev/packages/url_launcher) package to be able forward user to browser for the specified url (repo url, update url and etc)
+- [x] ~~Add support for few languages by official [flutter_localizations](https://flutter.dev/docs/development/accessibility-and-localization/internationalization) package~~ App supports for english and russian
+- [x] ~~Create an icon for the app~~ done
+- [x] ~~Add ability to specify language in settings~~ done
+- [x] ~~Add [url_launcher](https://pub.dev/packages/url_launcher) package to be able forward user to browser for the specified url (repo url, update url and etc)~~ done, currently opening only homepage with that.
+- [x] ~~Instead of copying HEX value, open dialog where few next color's representations will be shown:~~
+
+  - ~~HEX value~~ done
+  - ~~RGB value with alpha channel value~~ done RGB only, because alpha channel (for rgba) is not used at all, so there's no transparent colors
+  - ~~Flutter's variable (i.e. `Colors.red[400]` or `Colors.blueGrey.shade500`)~~ done
+
 - [ ] Add update checks with [http](https://pub.dev/packages/http) package
-- [ ] Instead of copying HEX value, open dialog where few next color's representations will be shown:
-
-  - HEX value
-  - RGB value with alpha channel value
-  - Flutter's variable (i.e. `Colors.red[400]` or `Colors.blueGrey.shade500`)
-
 - [ ] **IMOPRTANT** learn testing
 - [ ] **Probably** return FloatingActionButton widget instead of IconButton in the AppBar, but this required animation.
 - [ ] **Probably** add screen with RGB selector (sliders for ARGB channels)
