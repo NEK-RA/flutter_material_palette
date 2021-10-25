@@ -65,8 +65,7 @@ class ColorInfoDialog extends StatelessWidget {
         message += lc(context).flutterFullVariantString;
         break;
     }
-
-    message +=': $title, ';
+    message +=': $value ';
     message +=lc(context).copiedToClipboardString;
 
     context.router.pop();
@@ -115,7 +114,7 @@ class ColorInfoDialog extends StatelessWidget {
           subtitle: Text(getRgbValue()),
           trailing: IconButton(
             onPressed: (){
-              copyToClipboard(getHexValue(), context, ValueType.rgb);
+              copyToClipboard(getRgbValue(), context, ValueType.rgb);
             },
             icon: const Icon(Icons.copy)
           ),
@@ -125,7 +124,7 @@ class ColorInfoDialog extends StatelessWidget {
           subtitle: Text(getFlutterShort()),
           trailing: IconButton(
             onPressed: (){
-              copyToClipboard(getHexValue(), context, ValueType.flutterShort);
+              copyToClipboard(getFlutterShort(), context, ValueType.flutterShort);
             },
             icon: const Icon(Icons.copy)
           ),
@@ -135,7 +134,7 @@ class ColorInfoDialog extends StatelessWidget {
           subtitle: Text(getFlutterFull()),
           trailing: IconButton(
             onPressed: (){
-              copyToClipboard(getHexValue(), context, ValueType.flutterFull);
+              copyToClipboard(getFlutterFull(), context, ValueType.flutterFull);
             },
             icon: const Icon(Icons.copy)
           ),
