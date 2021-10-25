@@ -154,7 +154,7 @@ class SettingsPage extends StatelessWidget {
         ),
         const Divider(),
         ListTile(
-          title: Text('${lc(context).aboutAppVersionTitle} — 1.0.0+1'),
+          title: Text('${lc(context).aboutAppVersionTitle} — 1.0.0 build 1'),
           subtitle: Text(lc(context).aboutAppVersionSubtitle),
           leading: const Icon(Icons.info),
           onTap: (){
