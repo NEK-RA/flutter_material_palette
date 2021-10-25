@@ -19,6 +19,21 @@
       "description": "Part of snackbar message for copying color code"
     },
 
+    "rgbValueOfColorString": "RGB value of color",
+    "@rgbValueOfColorString": {
+      "description": "String for color_info_dialog.dart"
+    },
+
+    "flutterShortVariantString": "Flutter's short variant",
+    "@flutterShortVariantString": {
+      "description": "String for ListTile in color_info_dialog.dart, where the Colors.name[shade] format will be shown"
+    },
+
+    "flutterFullVariantString": "Flutter's full variant",
+    "@flutterFullVariantString": {
+      "description": "String for ListTile in color_info_dialog.dart, where the Colors.name.shadeN format will be shown"
+    },
+
     "copiedToClipboardString": "copied to clipboard",
     "@copiedToClipboardString": {
       "description": "The last part of snackbar message for copying color code"

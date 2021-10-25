@@ -1,7 +1,7 @@
 import 'package:material_palette/locales.dart';
 import 'package:flutter/material.dart';
 import 'package:material_palette/data/repositories/colors_repository.dart';
-import 'package:flutter/services.dart';
+import 'package:material_palette/widgets/color_info_dialog.dart';
 
 class ColorCard extends StatelessWidget {
   final String name;
@@ -75,17 +75,6 @@ class ColorCard extends StatelessWidget {
 
   String getHex () => '#${colorObject.value.toRadixString(16).substring(2)}';
 
-  String snackbarMessage(BuildContext context){
-    String message = lc(context).hexValueOfColorString + ': ';
-    if(isAccent){
-      message += lc(context).accent + ' ';
-    }
-    message += ColorPalette.getReadableColorName(color: name, context: context);
-    message += ', ${lc(context).shade} $shade, ';
-    message += lc(context).copiedToClipboardString + '!';
-    return message;
-  }
-
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -101,15 +90,24 @@ class ColorCard extends StatelessWidget {
     
       ),
       onTap: pressable ? (){
-        splitedColorName(context);
-        Clipboard.setData(ClipboardData(text: getHex()));
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
-            content: Text(snackbarMessage(context)),
-            duration: const Duration(seconds: 3),
-          )
-        );
+        showColorInfo(context);
       } : null,
+    );
+  }
+
+  void showColorInfo(BuildContext context){
+    String dialogTitle = '${ColorPalette.getReadableColorName(color: name, context: context)}, ${isAccent? lc(context).accent+', ': ''}${lc(context).shade} $shade';
+    showDialog(
+      context: context,
+      builder: (context){
+        return ColorInfoDialog(
+          name: name,
+          title: dialogTitle,
+          shade: shade,
+          isAccent: isAccent,
+          color: colorObject
+        );
+      }
     );
   }
 }
