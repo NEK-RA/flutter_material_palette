@@ -17,7 +17,7 @@ jobs:
     - name: Install dependencies
       run: flutter pub get
     - name: Build debug Android APK
-      run: flutter build apk --flavor main --debug
+      run: flutter build apk --debug
     # This step commented because linux-related part is not included into project yet
     # - name: Enable desktop support
     #   run: flutter config --enable-linux-desktop
