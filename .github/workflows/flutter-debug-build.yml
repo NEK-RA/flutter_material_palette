@@ -1,0 +1,27 @@
+name: Flutter Debug Build CI
+
+on: [push, pull_request]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - uses: subosito/flutter-action@v1.5.3
+      with:
+        flutter-version: '2.5.x'
+    - name: Disable Google Analytics
+      run: flutter config --no-analytics
+    - name: Install dependencies
+      run: flutter pub get
+    - name: Build debug Android APK
+      run: flutter build apk --flavor main --debug
+    # This step commented because linux-related part is not included into project yet
+    # - name: Enable desktop support
+    #   run: flutter config --enable-linux-desktop
+    # - name: Install Linux dependencies
+    #   run: sudo apt update && sudo apt install curl clang cmake ninja-build pkg-config libgtk-3-dev libblkid-dev liblzma-dev libjsoncpp-dev cmake-data libjsoncpp1 libsecret-1-dev libsecret-1-0 librhash0 libsqlite3-dev libappindicator3-dev gettext -y
+    # - name: Build debug Linux binary
+    #   run: flutter build linux --debug
