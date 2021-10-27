@@ -1,4 +1,5 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:material_palette/data/constants.dart';
 import 'package:material_palette/data/cubits/settings/settings_cubit.dart';
 import 'package:material_palette/locales.dart';
 import 'package:flutter/material.dart';
@@ -36,8 +37,6 @@ class SettingsPage extends StatelessWidget {
     'ru':'Русский',
     'en':'English'
   };
-
-  final String homepageUrl = 'https://github.com/NEK-RA/flutter_material_palette';
 
   String getCurrentLanguageName(BuildContext context){
     String languageCode = Localizations.localeOf(context).languageCode;
@@ -148,13 +147,13 @@ class SettingsPage extends StatelessWidget {
       children: [
         ListTile(
           title: Text(lc(context).aboutAppHomepage),
-          subtitle: Text(homepageUrl),
+          subtitle: const Text(Constants.homepageUrl),
           leading: const Icon(Icons.home),
           onTap: launchHomepage,
         ),
         const Divider(),
         ListTile(
-          title: Text('${lc(context).aboutAppVersionTitle} — 1.0.0 build 1'),
+          title: Text('${lc(context).aboutAppVersionTitle} — ${Constants.appVersion} ${lc(context).buildWord} ${Constants.appBuild}'),
           subtitle: Text(lc(context).aboutAppVersionSubtitle),
           leading: const Icon(Icons.info),
           onTap: (){
@@ -178,6 +177,8 @@ class SettingsPage extends StatelessWidget {
   }
 
   void launchHomepage() async {
-    await canLaunch(homepageUrl) ? await launch(homepageUrl) : throw 'Could not launch $homepageUrl';
+    await canLaunch(Constants.homepageUrl) ?
+      await launch(Constants.homepageUrl) :
+      throw 'Could not launch ${Constants.homepageUrl}';
   }
 }

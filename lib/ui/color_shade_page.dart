@@ -1,4 +1,5 @@
 import 'package:auto_route/auto_route.dart';
+import 'package:material_palette/data/constants.dart';
 import 'package:material_palette/locales.dart';
 
 import 'package:flutter/material.dart';
@@ -7,6 +8,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:material_palette/data/cubits/settings/settings_cubit.dart';
 import 'package:material_palette/data/repositories/colors_repository.dart';
 import 'package:material_palette/widgets/color_card.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class ColorShadesPage extends StatelessWidget {
   final String colorName;
@@ -19,7 +21,8 @@ class ColorShadesPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+
+    return ColorPalette.colors.containsKey(colorName) ? Scaffold(
       appBar: AppBar(
         title: Text(
           lc(context).shades + ' ' +
@@ -56,7 +59,28 @@ class ColorShadesPage extends StatelessWidget {
         builder: (context, state) {
           return state.shadesListView ? _buildListView() : _buildGridView(context);
         },
+      )
+    )
+    : Scaffold(
+      appBar: AppBar(
+        title: Text(lc(context).incorrectColorNameString),
+        centerTitle: true,
       ),
+      body: AlertDialog(
+          title: Text(lc(context).incorrectColorNameString),
+          content: Text(lc(context).incorrectColorNameMessage),
+          actions: [
+            ElevatedButton.icon(
+              onPressed: () => context.router.replaceNamed('/'),
+              label: Text(lc(context).goToMainScreen),
+              icon: const Icon(Icons.home_filled),
+            ),
+            OutlinedButton(
+              onPressed: () => launchHomepage(),
+              child: Text(lc(context).githubRepoString)
+            )
+          ],
+        ),
     );
   }
 
@@ -98,5 +122,10 @@ class ColorShadesPage extends StatelessWidget {
       childAspectRatio: ratio,
         padding: const EdgeInsets.all(8.0),
         children: colorCardList(vertical: true));
+  }
+
+  void launchHomepage() async {
+    
+    await canLaunch(Constants.homepageUrl) ? await launch(Constants.homepageUrl) : throw 'Could not launch ${Constants.homepageUrl}';
   }
 }

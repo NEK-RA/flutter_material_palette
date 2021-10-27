@@ -14,6 +14,11 @@
       "description": "'shade' word used inside color_card.dart"
     },
 
+    "buildWord": "build",
+    "@buildWord": {
+      "description": "A 'build' word used to show app version in the settings_page.dart"
+    },
+
     "hexValueOfColorString": "HEX value of color",
     "@hexValueOfColorString": {
       "description": "Part of snackbar message for copying color code"
@@ -124,6 +129,11 @@
       "description": "Title of ListTile, which contains link to github repo as subtitle. Used on the settings_page.dart inside of about() function"
     },
 
+    "githubRepoString":"Github-repository",
+    "@githubRepoString": {
+      "description": "String used inside button when error message shown at color_shade_page.dart"
+    },
+
     "aboutAppVersionTitle": "Version",
     "@aboutAppVersionTitle": {
       "description": "The 'Version' word used in the 'About' section of settings_page.dart, title of corresponding ListTile"
@@ -144,9 +154,19 @@
       "description": "Used in colors_repository.dart when no color found in created maps"
     },
 
+    "incorrectColorNameMessage": "Incorrect color specified. If you see this message when tapped some color in app main screen, please open issue at Github repo. Otherwise there's probably error in URL you opened.",
+    "@incorrectColorNameMessage": {
+      "description": "Error message displayed at color_shade_page.dart when the colorName parameter was not found in keys of ColorPalette.colors map"
+    },
+
     "accent": "Accent",
     "@": {
       "description": "'Accent' word used inside color_card.dart"
+    },
+
+    "goToMainScreen":"Main screen",
+    "@goToMainScreen": {
+      "description": "Text inside button which will redirect to palette_page.dart in case of incorrect color specified for color_shade_page.dart"
     },
 
     "redColor": "Red",
