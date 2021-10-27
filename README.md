@@ -4,7 +4,11 @@
 
 A color palette from Flutter's predefined material colors. Yes, yet another color palette.
 
-Demos are here: [media/demos](media/demos)
+Few demo gifs are here: [media/demos](media/demos)
+
+Also there is available web version: [https://nek-ra.github.io/flutter_material_palette/](https://nek-ra.github.io/flutter_material_palette/)
+
+P.S.: It's available because Flutter can provide web output while all project dependecies have web support.
 
 ## Warning
 
