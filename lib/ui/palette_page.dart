@@ -33,7 +33,6 @@ class PalettePage extends StatelessWidget {
               context.read<SettingsCubit>().switchColorsView();
             },
           ),
-          const SizedBox(width: 20),
           IconButton(
             tooltip: S.of(context).settings,
             onPressed: () => context.router.pushNamed('/settings'),

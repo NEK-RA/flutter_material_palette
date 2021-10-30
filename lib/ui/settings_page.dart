@@ -52,28 +52,6 @@ class SettingsPage extends StatelessWidget {
                 subtitle: Text(S.of(context).currentLanguageString + currentLanguage),
                 onTap: () => showLanguagesDialog(context),
               ),
-
-              SwitchListTile(
-                title:Text(
-                  S.of(context).listOnColorsScreenSettingTitle
-                ),
-                subtitle: state.colorsListView
-                  ? Text(S.of(context).listOnColorsScreenSettingSubtitleForEnabled)
-                  : Text(S.of(context).listOnColorsScreenSettingSubtitleForDisabled) ,
-                value: state.colorsListView,
-                onChanged: (bool _) => context.read<SettingsCubit>().switchColorsView(),
-              ),
-
-              const Divider(),
-
-              SwitchListTile(
-                title: Text(S.of(context).listOnShadesScreenSettingTitle),
-                subtitle: state.shadesListView
-                  ? Text(S.of(context).listOnShadesScreenSettingSubtitleForEnabled)
-                  : Text(S.of(context).listOnShadesScreenSettingSubtitleForDisabled) ,
-                value: state.shadesListView,
-                onChanged: (bool _) => context.read<SettingsCubit>().switchShadesView(),
-              ),
               
               const Divider(),
               

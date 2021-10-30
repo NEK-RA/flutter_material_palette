@@ -45,7 +45,6 @@ class ColorShadesPage extends StatelessWidget {
               context.read<SettingsCubit>().switchShadesView();
             },
           ),
-          const SizedBox(width: 20),
           IconButton(
             tooltip: S.of(context).settings,
             onPressed: () => context.router.pushNamed('/settings'),
