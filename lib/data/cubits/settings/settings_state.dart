@@ -27,7 +27,17 @@ class SettingsInitial extends SettingsState {
   @override
   bool get languageChanged => settings.isLocaleDefined;
   @override
-  Locale get locale => Locale(settings.languageCode);
+  Locale get locale {
+    if(settings.language.contains('_')){
+      List<String> localeParts = settings.language.split('_');
+      return Locale(
+        localeParts[0],
+        localeParts[1]
+      );
+    }else{
+      return Locale(settings.language);
+    }
+  }
 
   @override
   int get hashCode => colorsListView.hashCode ^ shadesListView.hashCode ^ darkTheme.hashCode ^ columnsInGrid.hashCode ^ languageChanged.hashCode ^ locale.hashCode;
@@ -57,7 +67,17 @@ class SettingsChanged extends SettingsState{
   @override
   bool get languageChanged => settings.isLocaleDefined;
   @override
-  Locale get locale => Locale(settings.languageCode);
+  Locale get locale {
+    if(settings.language.contains('_')){
+      List<String> localeParts = settings.language.split('_');
+      return Locale(
+        localeParts[0],
+        localeParts[1]
+      );
+    }else{
+      return Locale(settings.language);
+    }
+  }
 
   @override
   int get hashCode => colorsListView.hashCode ^ shadesListView.hashCode ^ darkTheme.hashCode ^ columnsInGrid.hashCode ^ languageChanged.hashCode ^ locale.hashCode;

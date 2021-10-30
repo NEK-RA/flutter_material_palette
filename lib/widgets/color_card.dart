@@ -1,4 +1,4 @@
-import 'package:material_palette/locales.dart';
+import 'package:material_palette/locale.dart';
 import 'package:flutter/material.dart';
 import 'package:material_palette/data/repositories/colors_repository.dart';
 import 'package:material_palette/widgets/color_info_dialog.dart';
@@ -18,8 +18,6 @@ class ColorCard extends StatelessWidget {
           ColorPalette.getColor(color: name, shade: shade),
         super(key: key);
 
-  AppLocalizations lc(BuildContext context) => AppLocalizations.of(context)!;
-
   Widget _colorTitle(String name, int color, BuildContext context){
     String hex = '#${color.toRadixString(16).substring(2)}';
     String colorName = ColorPalette.getReadableColorName(color: name, context: context);
@@ -32,15 +30,15 @@ class ColorCard extends StatelessWidget {
         return Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            if(isAccent) Text(lc(context).accent, style: textStyle),
-            Text(lc(context).shade + shade.toString(), style: textStyle),
+            if(isAccent) Text(S.of(context).accent, style: textStyle),
+            Text(S.of(context).shade + shade.toString(), style: textStyle),
             Text(hex, style: textStyle)
           ],
         );
       }else{
         return Row(
           children: [
-            Text('${isAccent? lc(context).accent + ', ': '' }${lc(context).shade}$shade', style: textStyle),
+            Text('${isAccent? S.of(context).accent + ', ': '' }${S.of(context).shade}$shade', style: textStyle),
             const Spacer(),
             Text(hex, style: textStyle)
           ],
@@ -96,7 +94,7 @@ class ColorCard extends StatelessWidget {
   }
 
   void showColorInfo(BuildContext context){
-    String dialogTitle = '${ColorPalette.getReadableColorName(color: name, context: context)}, ${isAccent? lc(context).accent+', ': ''}${lc(context).shade} $shade';
+    String dialogTitle = '${ColorPalette.getReadableColorName(color: name, context: context)}, ${isAccent? S.of(context).accent+', ': ''}${S.of(context).shade} $shade';
     showDialog(
       context: context,
       builder: (context){

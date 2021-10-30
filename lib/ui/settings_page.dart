@@ -1,7 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:material_palette/data/constants.dart';
 import 'package:material_palette/data/cubits/settings/settings_cubit.dart';
-import 'package:material_palette/locales.dart';
+import 'package:material_palette/locale.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -13,17 +13,17 @@ class SettingsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(lc(context).settings + ' | ' + lc(context).about),
+        title: Text(S.of(context).settings + ' | ' + S.of(context).about),
         centerTitle: true,
       ),
       body: ListView(
         children: [
           ListTile(
-            title: Text(lc(context).settings),
+            title: Text(S.of(context).settings),
           ),
           Card(child: settings(context)),
           ListTile(
-            title: Text(lc(context).about),
+            title: Text(S.of(context).about),
           ),
           Card(child: about(context))
         ],
@@ -31,42 +31,35 @@ class SettingsPage extends StatelessWidget {
     );
   }
 
-  AppLocalizations lc(BuildContext context) => AppLocalizations.of(context)!; 
-
-  final Map<String,String> languageNames = const {
-    'ru':'Русский',
-    'en':'English'
-  };
-
   String getCurrentLanguageName(BuildContext context){
-    String languageCode = Localizations.localeOf(context).languageCode;
-    if(languageNames.containsKey(languageCode)){
-      return languageNames[languageCode]!;
+    String current = Localizations.localeOf(context).toString();
+    if(Constants.languageNames.containsKey(current)){
+      return Constants.languageNames[current]!;
     }else{
-      return lc(context).systemWordAdjective;
+      return S.of(context).systemWordAdjective;
     }
   }
 
   Widget settings(BuildContext context){
     return BlocBuilder<SettingsCubit,SettingsState>(
         builder: (context,state){
-          String currentLanguage = state.languageChanged ? getCurrentLanguageName(context) : '${lc(context).systemWordAdjective} (${getCurrentLanguageName(context)})';
+          String currentLanguage = state.languageChanged ? getCurrentLanguageName(context) : '${S.of(context).systemWordAdjective} (${getCurrentLanguageName(context)})';
           return Column(
             children: [
               
               ListTile(
-                title: Text(lc(context).appLanguageSettingTitle),
-                subtitle: Text(lc(context).currentLanguageString + currentLanguage),
+                title: Text(S.of(context).appLanguageSettingTitle),
+                subtitle: Text(S.of(context).currentLanguageString + currentLanguage),
                 onTap: () => showLanguagesDialog(context),
               ),
 
               SwitchListTile(
                 title:Text(
-                  lc(context).listOnColorsScreenSettingTitle
+                  S.of(context).listOnColorsScreenSettingTitle
                 ),
                 subtitle: state.colorsListView
-                  ? Text(lc(context).listOnColorsScreenSettingSubtitleForEnabled)
-                  : Text(lc(context).listOnColorsScreenSettingSubtitleForDisabled) ,
+                  ? Text(S.of(context).listOnColorsScreenSettingSubtitleForEnabled)
+                  : Text(S.of(context).listOnColorsScreenSettingSubtitleForDisabled) ,
                 value: state.colorsListView,
                 onChanged: (bool _) => context.read<SettingsCubit>().switchColorsView(),
               ),
@@ -74,10 +67,10 @@ class SettingsPage extends StatelessWidget {
               const Divider(),
 
               SwitchListTile(
-                title: Text(lc(context).listOnShadesScreenSettingTitle),
+                title: Text(S.of(context).listOnShadesScreenSettingTitle),
                 subtitle: state.shadesListView
-                  ? Text(lc(context).listOnShadesScreenSettingSubtitleForEnabled)
-                  : Text(lc(context).listOnShadesScreenSettingSubtitleForDisabled) ,
+                  ? Text(S.of(context).listOnShadesScreenSettingSubtitleForEnabled)
+                  : Text(S.of(context).listOnShadesScreenSettingSubtitleForDisabled) ,
                 value: state.shadesListView,
                 onChanged: (bool _) => context.read<SettingsCubit>().switchShadesView(),
               ),
@@ -85,8 +78,8 @@ class SettingsPage extends StatelessWidget {
               const Divider(),
               
               SwitchListTile(
-                title: Text(lc(context).darkThemeSettingTitle),
-                subtitle: Text(lc(context).darkThemeSettingSubtitle),
+                title: Text(S.of(context).darkThemeSettingTitle),
+                subtitle: Text(S.of(context).darkThemeSettingSubtitle),
                 value: state.darkTheme,
                 onChanged: (bool _) => context.read<SettingsCubit>().switchTheme(),
               ),
@@ -94,8 +87,8 @@ class SettingsPage extends StatelessWidget {
               const Divider(),
               
               ListTile(
-                title: Text(lc(context).columnCountSettingTitle),
-                subtitle: Text(lc(context).columnCountSettingSubtitle),
+                title: Text(S.of(context).columnCountSettingTitle),
+                subtitle: Text(S.of(context).columnCountSettingSubtitle),
               ),
               Slider(
                 max: 3,
@@ -114,30 +107,30 @@ class SettingsPage extends StatelessWidget {
   }
 
   void showLanguagesDialog(BuildContext context) async {
-    String? selectedCode = await showDialog<String>(
+    String? selectedLocale = await showDialog<String>(
       context: context,
       builder:(context){
       return SimpleDialog(
-        title: Text(lc(context).appLanguageSettingTitle),
+        title: Text(S.of(context).appLanguageSettingTitle),
         children: [
           SimpleDialogOption(
-            child: Text(lc(context).systemWordAdjective),
+            child: Text(S.of(context).systemWordAdjective),
             onPressed: () => context.router.pop('system'),
           ),
-          for (var locale in AppLocalizations.supportedLocales)
+          for (var locale in AppLocale.supportedLocales)
             SimpleDialogOption(
-              child: Text(languageNames[locale.languageCode]!),
-              onPressed: () => context.router.pop(locale.languageCode),
+              child: Text(Constants.languageNames[locale.toString()]!),
+              onPressed: () => context.router.pop(locale.toString()),
             ),
         ],
       );
     });
 
-    if(selectedCode!=null){
-      if(selectedCode == 'system'){
+    if(selectedLocale!=null){
+      if(selectedLocale == 'system'){
         context.read<SettingsCubit>().useSystemLanguage();
       }else{
-        context.read<SettingsCubit>().changeLanguage(selectedCode);
+        context.read<SettingsCubit>().changeLanguage(selectedLocale);
       }
     }
   }
@@ -146,15 +139,15 @@ class SettingsPage extends StatelessWidget {
     return Column(
       children: [
         ListTile(
-          title: Text(lc(context).aboutAppHomepage),
+          title: Text(S.of(context).aboutAppHomepage),
           subtitle: const Text(Constants.homepageUrl),
           leading: const Icon(Icons.home),
           onTap: launchHomepage,
         ),
         const Divider(),
         ListTile(
-          title: Text('${lc(context).aboutAppVersionTitle} — ${Constants.appVersion} ${lc(context).buildWord} ${Constants.appBuild}'),
-          subtitle: Text(lc(context).aboutAppVersionSubtitle),
+          title: Text('${S.of(context).aboutAppVersionTitle} — ${Constants.appVersion} ${S.of(context).buildWord} ${Constants.appBuild}'),
+          subtitle: Text(S.of(context).aboutAppVersionSubtitle),
           leading: const Icon(Icons.info),
           onTap: (){
             ScaffoldMessenger.of(context).showSnackBar(
@@ -162,7 +155,7 @@ class SettingsPage extends StatelessWidget {
                 content: Row(
                   children: [
                     const Spacer(),
-                    Text(lc(context).notImplementedString),
+                    Text(S.of(context).notImplementedString),
                     const Spacer()
                   ]
                 ),

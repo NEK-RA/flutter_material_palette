@@ -1,6 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:material_palette/data/constants.dart';
-import 'package:material_palette/locales.dart';
+import 'package:material_palette/locale.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -17,15 +17,13 @@ class ColorShadesPage extends StatelessWidget {
       {Key? key, @PathParam('colorName') required this.colorName})
       : super(key: key);
 
-  AppLocalizations lc(BuildContext context) => AppLocalizations.of(context)!; 
-
   @override
   Widget build(BuildContext context) {
 
     return ColorPalette.colors.containsKey(colorName) ? Scaffold(
       appBar: AppBar(
         title: Text(
-          lc(context).shades + ' ' +
+          S.of(context).shades + ' ' +
           ColorPalette.getReadableColorName(
             color: colorName,
             context: context,
@@ -35,7 +33,7 @@ class ColorShadesPage extends StatelessWidget {
         centerTitle: true,
         actions: [
           IconButton(
-            tooltip: lc(context).switchViewTooltip,
+            tooltip: S.of(context).switchViewTooltip,
             icon: BlocBuilder<SettingsCubit,SettingsState>(
               builder: (context, state){
                 return Icon(
@@ -49,7 +47,7 @@ class ColorShadesPage extends StatelessWidget {
           ),
           const SizedBox(width: 20),
           IconButton(
-            tooltip: lc(context).settings,
+            tooltip: S.of(context).settings,
             onPressed: () => context.router.pushNamed('/settings'),
             icon: const Icon(Icons.settings)
           )
@@ -63,21 +61,21 @@ class ColorShadesPage extends StatelessWidget {
     )
     : Scaffold(
       appBar: AppBar(
-        title: Text(lc(context).incorrectColorNameString),
+        title: Text(S.of(context).incorrectColorNameString),
         centerTitle: true,
       ),
       body: AlertDialog(
-          title: Text(lc(context).incorrectColorNameString),
-          content: Text(lc(context).incorrectColorNameMessage),
+          title: Text(S.of(context).incorrectColorNameString),
+          content: Text(S.of(context).incorrectColorNameMessage),
           actions: [
             ElevatedButton.icon(
               onPressed: () => context.router.replaceNamed('/'),
-              label: Text(lc(context).goToMainScreen),
+              label: Text(S.of(context).goToMainScreen),
               icon: const Icon(Icons.home_filled),
             ),
             OutlinedButton(
               onPressed: () => launchHomepage(),
-              child: Text(lc(context).githubRepoString)
+              child: Text(S.of(context).githubRepoString)
             )
           ],
         ),

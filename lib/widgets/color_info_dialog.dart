@@ -1,7 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:material_palette/locales.dart';
+import 'package:material_palette/locale.dart';
 
 enum ValueType {
   hex,
@@ -24,8 +24,6 @@ class ColorInfoDialog extends StatelessWidget {
     required this.isAccent,
     required this.color
   }) : super(key: key);
-
-  AppLocalizations lc(BuildContext context) => AppLocalizations.of(context)!;
 
   bool needShade(){
     if(isAccent){
@@ -53,20 +51,20 @@ class ColorInfoDialog extends StatelessWidget {
     String message = '';
     switch (type){
       case ValueType.hex:
-        message += lc(context).hexValueOfColorString;
+        message += S.of(context).hexValueOfColorString;
         break;
       case ValueType.rgb:
-        message += lc(context).rgbValueOfColorString;
+        message += S.of(context).rgbValueOfColorString;
         break;
       case ValueType.flutterShort:
-        message += lc(context).flutterShortVariantString;
+        message += S.of(context).flutterShortVariantString;
         break;
       case ValueType.flutterFull:
-        message += lc(context).flutterFullVariantString;
+        message += S.of(context).flutterFullVariantString;
         break;
     }
     message +=': $value ';
-    message +=lc(context).copiedToClipboardString;
+    message +=S.of(context).copiedToClipboardString;
 
     context.router.pop();
 
@@ -100,7 +98,7 @@ class ColorInfoDialog extends StatelessWidget {
           ],
         ),
         ListTile(
-          title: Text(lc(context).hexValueOfColorString),
+          title: Text(S.of(context).hexValueOfColorString),
           subtitle: Text(getHexValue()),
           trailing: IconButton(
             onPressed: (){
@@ -110,7 +108,7 @@ class ColorInfoDialog extends StatelessWidget {
           ),
         ),
         ListTile(
-          title: Text(lc(context).rgbValueOfColorString),
+          title: Text(S.of(context).rgbValueOfColorString),
           subtitle: Text(getRgbValue()),
           trailing: IconButton(
             onPressed: (){
@@ -120,7 +118,7 @@ class ColorInfoDialog extends StatelessWidget {
           ),
         ),
         ListTile(
-          title: Text(lc(context).flutterShortVariantString),
+          title: Text(S.of(context).flutterShortVariantString),
           subtitle: Text(getFlutterShort()),
           trailing: IconButton(
             onPressed: (){
@@ -130,7 +128,7 @@ class ColorInfoDialog extends StatelessWidget {
           ),
         ),
         ListTile(
-          title: Text(lc(context).flutterFullVariantString),
+          title: Text(S.of(context).flutterFullVariantString),
           subtitle: Text(getFlutterFull()),
           trailing: IconButton(
             onPressed: (){

@@ -42,7 +42,7 @@ class SettingsCubit extends Cubit<SettingsState> {
 
   void changeLanguage(String value){
     SettingsChanged newState = SettingsChanged(prefs);
-    newState.settings.languageCode = value;
+    newState.settings.language = value;
     emit(newState);
   }
 

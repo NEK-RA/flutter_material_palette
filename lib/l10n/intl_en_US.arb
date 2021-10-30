@@ -1,4 +1,6 @@
 {
+    "@@locale": "en_US",
+
     "baseColors": "Base colors",
     "@baseColors": {
       "description": "Title for the app bar on palette_page.dart"

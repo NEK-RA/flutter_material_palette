@@ -1,4 +1,6 @@
-import 'package:material_palette/locales.dart';
+import 'dart:convert';
+
+import 'package:material_palette/locale.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -38,8 +40,8 @@ class MyApp extends StatelessWidget {
             routeInformationParser: _appRouter.defaultRouteParser(),
             routerDelegate: _appRouter.delegate(),
             theme: state.darkTheme ? ThemeData.dark() : lightIndigo,
-            localizationsDelegates: AppLocalizations.localizationsDelegates,
-            supportedLocales: AppLocalizations.supportedLocales,
+            localizationsDelegates: AppLocale.localizationsDelegates,
+            supportedLocales: AppLocale.supportedLocales,
             locale: state.languageChanged ? state.locale : null
           );
         },

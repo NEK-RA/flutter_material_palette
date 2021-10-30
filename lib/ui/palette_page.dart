@@ -1,5 +1,5 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:material_palette/locales.dart';
+import 'package:material_palette/locale.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -11,19 +11,17 @@ import 'package:material_palette/widgets/color_card.dart';
 
 
 class PalettePage extends StatelessWidget {
-  const PalettePage({Key? key}) : super(key: key);
-
-  AppLocalizations lc(BuildContext context) => AppLocalizations.of(context)!; 
+  const PalettePage({Key? key}) : super(key: key); 
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(lc(context).baseColors),
+        title: Text(S.of(context).baseColors),
         centerTitle: true,
         actions: [
           IconButton(
-            tooltip: lc(context).switchViewTooltip,
+            tooltip: S.of(context).switchViewTooltip,
             icon: BlocBuilder<SettingsCubit,SettingsState>(
               builder: (context, state){
                 return Icon(
@@ -37,7 +35,7 @@ class PalettePage extends StatelessWidget {
           ),
           const SizedBox(width: 20),
           IconButton(
-            tooltip: lc(context).settings,
+            tooltip: S.of(context).settings,
             onPressed: () => context.router.pushNamed('/settings'),
             icon: const Icon(Icons.settings)
           )
