@@ -9,7 +9,8 @@ export 'generated/l10n.dart';
 class AppLocale {
   static const supportedLocales = [
     Locale('en', 'US'),
-    Locale('ru', 'RU')
+    Locale('ru', 'RU'),
+    Locale('uk', 'UA')
   ];
 
   static const Iterable<LocalizationsDelegate<dynamic>> localizationsDelegates =

@@ -7,6 +7,7 @@ class Constants {
   // Related to localization
   static const Map<String,String> languageNames = {
     'ru_RU':'Русский',
-    'en_US':'English (US)'
+    'en_US':'English (US)',
+    'uk_UA':'Українська'
   };
 }
