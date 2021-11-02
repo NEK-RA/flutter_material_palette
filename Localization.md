@@ -55,9 +55,26 @@ If you open `intl_en_US.arb`, you'll found:
 
 5. **WARNING:** you don't need to work with files in `lib/generated/intl` because they are generated from `intl_*_*.arb` files!
 
-6. Add native language name into list:
+6. Add your language name into supported list:
 
-    6.1 Open the `lib/locale.dart`, scroll down and find a `_languageNames` map:
+    6.0 Open the `lib/locale.dart` and find the `supportedLocales` list:
+
+    ```dart
+    static const supportedLocales = [
+        Locale('en', 'US')
+    ];
+    ```
+
+    6.1 Add the comma after last entry and add to this list the `Locale('your language code','your country code')`, in case of russian it's a `Locale('ru', 'RU')`, so finally it looks like:
+
+    ```dart
+    static const supportedLocales = [
+        Locale('en', 'US'),
+        Locale('ru', 'RU')
+    ];
+    ```
+
+    6.2 Scroll down and find a `_languageNames` map:
 
     ```dart
       static const Map<String,String> _languageNames = {
@@ -67,7 +84,7 @@ If you open `intl_en_US.arb`, you'll found:
 
     It's a map, where each `<language code>_<country code>` mapped to it's native language name
 
-    6.2 Add comma after last entry of this map and add new entry related to your translation, i.e. for russian this entry will look `'ru_RU':'Русский'` and finally this map should look like
+    6.3 Add comma after last entry of this map and add new entry related to your translation, i.e. for russian this entry will look `'ru_RU':'Русский'` and finally this map should look like
 
     ```dart
     static const Map<String,String> _languageNames = {
