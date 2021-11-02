@@ -22,15 +22,15 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         name: MP-debug-arm-v7-commit-${{github.sha}}
-        path: build\app\outputs\flutter-apk\app-armeabi-v7a-debug.apk
+        path: build/app/outputs/flutter-apk/app-armeabi-v7a-debug.apk
     - name: Uploading debug apk for ARMv8 (ARM 64-bit)
       uses: actions/upload-artifact@v2
       with:
         name: MP-debug-arm-v8-commit-${{github.sha}}
-        path: build\app\outputs\flutter-apk\app-arm64-v8a-debug.apk
+        path: build/app/outputs/flutter-apk/app-arm64-v8a-debug.apk
     - name: Uploading debug apk for x86_64
       uses: actions/upload-artifact@v2
       with:
         name: MP-debug-x86_64-commit-${{github.sha}}
-        path: build\app\outputs\flutter-apk\app-x86_64-debug.apk
+        path: build/app/outputs/flutter-apk/app-x86_64-debug.apk
 
