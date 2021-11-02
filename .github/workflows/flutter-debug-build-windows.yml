@@ -1,4 +1,4 @@
-name: name: Flutter CI - Debug windows build
+name: Flutter CI - Debug windows build
 
 on: [push, pull_request]
 
