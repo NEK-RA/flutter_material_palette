@@ -49,7 +49,7 @@ If you open `intl_en_US.arb`, you'll found:
         "baseColors": "Базовые цвета",
         "shades": "Оттенки",    // all entries separated by commas
         ...
-        "ofBlueGreyColor": "сине серого"    // comma, not used after last entry
+        "ofBlueGreyColor": "сине серого"    // comma not used after last entry
     }
     ```
 
