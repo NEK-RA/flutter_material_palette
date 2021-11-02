@@ -9,28 +9,35 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+
     - uses: subosito/flutter-action@v1.5.3
       with:
         flutter-version: '2.5.x'
+    
     - name: Disable Google Analytics
       run: flutter config --no-analytics
+    
     - name: Install dependencies
       run: flutter pub get
+    
     - name: Build debug Android APK
       run: flutter build apk --debug --split-per-abi
+    
     - name: Uploading debug apk for ARMv7 (ARM 32-bit)
       uses: actions/upload-artifact@v2
       with:
-        name: MP-debug-arm-v7-commit-${{github.sha}}
+        name: MP-debug-android-arm-v7-commit-${{github.sha}}
         path: build/app/outputs/flutter-apk/app-armeabi-v7a-debug.apk
+    
     - name: Uploading debug apk for ARMv8 (ARM 64-bit)
       uses: actions/upload-artifact@v2
       with:
-        name: MP-debug-arm-v8-commit-${{github.sha}}
+        name: MP-debug-android-arm-v8-commit-${{github.sha}}
         path: build/app/outputs/flutter-apk/app-arm64-v8a-debug.apk
+    
     - name: Uploading debug apk for x86_64
       uses: actions/upload-artifact@v2
       with:
-        name: MP-debug-x86_64-commit-${{github.sha}}
+        name: MP-debug-android-x86_64-commit-${{github.sha}}
         path: build/app/outputs/flutter-apk/app-x86_64-debug.apk
 
