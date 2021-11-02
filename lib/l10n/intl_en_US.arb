@@ -62,12 +62,12 @@
     },
 
     "appLanguageSettingTitle":"App language",
-    "@": {
+    "@appLanguageSettingTitle": {
       "description": "Title for the app language ListTile in the settings_page.dart"
     },
 
     "currentLanguageString":"Current language: ",
-    "@": {
+    "@currentLanguageString": {
       "description": "String for the subtitle of ListTile, which contains appLanguageSettingTitle"
     },
 
@@ -162,7 +162,7 @@
     },
 
     "accent": "Accent",
-    "@": {
+    "@accent": {
       "description": "'Accent' word used inside color_card.dart"
     },
 
@@ -187,177 +187,177 @@
     },
 
     "ofPinkColor": "of pink",
-    "@": {
+    "@ofPinkColor": {
       "description": "form of name for using in app bar on the color_shade_page.dart"
     },
 
     "purpleColor": "Purple",
-    "@": {
+    "@purpleColor": {
       "description": "readable color name of purple"
     },
 
     "ofPurpleColor": "of purple",
-    "@": {
+    "@ofPurpleColor": {
       "description": "form of name for using in app bar on the color_shade_page.dart"
     },
 
     "deepPurpleColor": "Deep Purple",
-    "@": {
+    "@deepPurpleColor": {
       "description": "readable color name of deep purple"
     },
 
     "ofDeepPurpleColor": "of deep purple",
-    "@": {
+    "@ofDeepPurpleColor": {
       "description": "form of name for using in app bar on the color_shade_page.dart"
     },
 
     "indigoColor": "Indigo",
-    "@": {
+    "@indigoColor": {
       "description": "readable color name of indigo"
     },
 
     "ofIndigoColor": "of indigo",
-    "@": {
+    "@ofIndigoColor": {
       "description": "form of name for using in app bar on the color_shade_page.dart"
     },
 
     "blueColor": "Blue",
-    "@": {
+    "@blueColor": {
       "description": "readable color name of blue"
     },
 
     "ofBlueColor": "of blue",
-    "@": {
+    "@ofBlueColor": {
       "description": "form of name for using in app bar on the color_shade_page.dart"
     },
 
     "lightBlueColor": "Light Blue",
-    "@": {
+    "@lightBlueColor": {
       "description": "readable color name of light blue"
     },
 
     "ofLightBlueColor": "of light blue",
-    "@": {
+    "@ofLightBlueColor": {
       "description": "form of name for using in app bar on the color_shade_page.dart"
     },
 
     "cyanColor": "Cyan",
-    "@": {
+    "@cyanColor": {
       "description": "readable color name of cyan"
     },
 
     "ofCyanColor": "of cyan",
-    "@": {
+    "@ofCyanColor": {
       "description": "form of name for using in app bar on the color_shade_page.dart"
     },
 
     "tealColor": "Teal",
-    "@": {
+    "@tealColor": {
       "description": "readable color name of teal"
     },
 
     "ofTealColor": "of teal",
-    "@": {
+    "@ofTealColor": {
       "description": "form of name for using in app bar on the color_shade_page.dart"
     },
 
     "greenColor": "Green",
-    "@": {
+    "@greenColor": {
       "description": "readable color name of green"
     },
 
     "ofGreenColor": "of green",
-    "@": {
+    "@ofGreenColor": {
       "description": "form of name for using in app bar on the color_shade_page.dart"
     },
 
     "lightGreenColor": "Light Green",
-    "@": {
+    "@lightGreenColor": {
       "description": "readable color name of light green"
     },
 
     "ofLightGreenColor": "of light green",
-    "@": {
+    "@ofLightGreenColor": {
       "description": "form of name for using in app bar on the color_shade_page.dart"
     },
 
     "limeColor": "Lime",
-    "@": {
+    "@limeColor": {
       "description": "readable color name of lime"
     },
 
     "ofLimeColor": "of lime",
-    "@": {
+    "@ofLimeColor": {
       "description": "form of name for using in app bar on the color_shade_page.dart"
     },
 
     "yellowColor": "Yellow",
-    "@": {
+    "@yellowColor": {
       "description": "readable color name of yellow"
     },
 
     "ofYellowColor": "of yellow",
-    "@": {
+    "@ofYellowColor": {
       "description": "form of name for using in app bar on the color_shade_page.dart"
     },
 
     "amberColor": "Amber",
-    "@": {
+    "@amberColor": {
       "description": "readable color name of amber"
     },
 
     "ofAmberColor": "of amber",
-    "@": {
+    "@ofAmberColor": {
       "description": "form of name for using in app bar on the color_shade_page.dart"
     },
 
     "orangeColor": "Orange",
-    "@": {
+    "@orangeColor": {
       "description": "readable color name of orange"
     },
 
     "ofOrangeColor": "of orange",
-    "@": {
+    "@ofOrangeColor": {
       "description": "form of name for using in app bar on the color_shade_page.dart"
     },
 
     "deepOrangeColor": "Deep Orange",
-    "@": {
+    "@deepOrangeColor": {
       "description": "readable color name of deep orange"
     },
 
     "ofDeepOrangeColor": "of deep orange",
-    "@": {
+    "@ofDeepOrangeColor": {
       "description": "form of name for using in app bar on the color_shade_page.dart"
     },
 
     "brownColor": "Brown",
-    "@": {
+    "@brownColor": {
       "description": "readable color name of brown"
     },
 
     "ofBrownColor": "of brown",
-    "@": {
+    "@ofBrownColor": {
       "description": "form of name for using in app bar on the color_shade_page.dart"
     },
 
     "greyColor": "Grey",
-    "@": {
+    "@greyColor": {
       "description": "readable color name of grey"
     },
 
     "ofGreyColor": "of grey",
-    "@": {
+    "@ofGreyColor": {
       "description": "form of name for using in app bar on the color_shade_page.dart"
     },
 
     "blueGreyColor": "Blue Grey",
-    "@": {
+    "@blueGreyColor": {
       "description": "readable color name of blue grey"
     },
 
     "ofBlueGreyColor": "of blue grey",
-    "@": {
+    "@ofBlueGreyColor": {
       "description": "form of name for using in app bar on the color_shade_page.dart"
     }
 }

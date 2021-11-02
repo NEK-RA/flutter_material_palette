@@ -29,4 +29,11 @@ class AppLocale {
       ),
     );
   }
+
+  static String getLanguageName(String locale) => _languageNames[locale] ?? locale;
+
+  static const Map<String,String> _languageNames = {
+    'en_US':'English (US)',
+    'ru_RU':'Русский'
+  };
 }

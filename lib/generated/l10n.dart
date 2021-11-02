@@ -180,7 +180,7 @@ class S {
     return Intl.message(
       'App language',
       name: 'appLanguageSettingTitle',
-      desc: '',
+      desc: 'Title for the app language ListTile in the settings_page.dart',
       args: [],
     );
   }
@@ -190,7 +190,8 @@ class S {
     return Intl.message(
       'Current language: ',
       name: 'currentLanguageString',
-      desc: '',
+      desc:
+          'String for the subtitle of ListTile, which contains appLanguageSettingTitle',
       args: [],
     );
   }
@@ -392,7 +393,7 @@ class S {
     return Intl.message(
       'Accent',
       name: 'accent',
-      desc: '',
+      desc: '\'Accent\' word used inside color_card.dart',
       args: [],
     );
   }
@@ -443,7 +444,7 @@ class S {
     return Intl.message(
       'of pink',
       name: 'ofPinkColor',
-      desc: '',
+      desc: 'form of name for using in app bar on the color_shade_page.dart',
       args: [],
     );
   }
@@ -453,7 +454,7 @@ class S {
     return Intl.message(
       'Purple',
       name: 'purpleColor',
-      desc: '',
+      desc: 'readable color name of purple',
       args: [],
     );
   }
@@ -463,7 +464,7 @@ class S {
     return Intl.message(
       'of purple',
       name: 'ofPurpleColor',
-      desc: '',
+      desc: 'form of name for using in app bar on the color_shade_page.dart',
       args: [],
     );
   }
@@ -473,7 +474,7 @@ class S {
     return Intl.message(
       'Deep Purple',
       name: 'deepPurpleColor',
-      desc: '',
+      desc: 'readable color name of deep purple',
       args: [],
     );
   }
@@ -483,7 +484,7 @@ class S {
     return Intl.message(
       'of deep purple',
       name: 'ofDeepPurpleColor',
-      desc: '',
+      desc: 'form of name for using in app bar on the color_shade_page.dart',
       args: [],
     );
   }
@@ -493,7 +494,7 @@ class S {
     return Intl.message(
       'Indigo',
       name: 'indigoColor',
-      desc: '',
+      desc: 'readable color name of indigo',
       args: [],
     );
   }
@@ -503,7 +504,7 @@ class S {
     return Intl.message(
       'of indigo',
       name: 'ofIndigoColor',
-      desc: '',
+      desc: 'form of name for using in app bar on the color_shade_page.dart',
       args: [],
     );
   }
@@ -513,7 +514,7 @@ class S {
     return Intl.message(
       'Blue',
       name: 'blueColor',
-      desc: '',
+      desc: 'readable color name of blue',
       args: [],
     );
   }
@@ -523,7 +524,7 @@ class S {
     return Intl.message(
       'of blue',
       name: 'ofBlueColor',
-      desc: '',
+      desc: 'form of name for using in app bar on the color_shade_page.dart',
       args: [],
     );
   }
@@ -533,7 +534,7 @@ class S {
     return Intl.message(
       'Light Blue',
       name: 'lightBlueColor',
-      desc: '',
+      desc: 'readable color name of light blue',
       args: [],
     );
   }
@@ -543,7 +544,7 @@ class S {
     return Intl.message(
       'of light blue',
       name: 'ofLightBlueColor',
-      desc: '',
+      desc: 'form of name for using in app bar on the color_shade_page.dart',
       args: [],
     );
   }
@@ -553,7 +554,7 @@ class S {
     return Intl.message(
       'Cyan',
       name: 'cyanColor',
-      desc: '',
+      desc: 'readable color name of cyan',
       args: [],
     );
   }
@@ -563,7 +564,7 @@ class S {
     return Intl.message(
       'of cyan',
       name: 'ofCyanColor',
-      desc: '',
+      desc: 'form of name for using in app bar on the color_shade_page.dart',
       args: [],
     );
   }
@@ -573,7 +574,7 @@ class S {
     return Intl.message(
       'Teal',
       name: 'tealColor',
-      desc: '',
+      desc: 'readable color name of teal',
       args: [],
     );
   }
@@ -583,7 +584,7 @@ class S {
     return Intl.message(
       'of teal',
       name: 'ofTealColor',
-      desc: '',
+      desc: 'form of name for using in app bar on the color_shade_page.dart',
       args: [],
     );
   }
@@ -593,7 +594,7 @@ class S {
     return Intl.message(
       'Green',
       name: 'greenColor',
-      desc: '',
+      desc: 'readable color name of green',
       args: [],
     );
   }
@@ -603,7 +604,7 @@ class S {
     return Intl.message(
       'of green',
       name: 'ofGreenColor',
-      desc: '',
+      desc: 'form of name for using in app bar on the color_shade_page.dart',
       args: [],
     );
   }
@@ -613,7 +614,7 @@ class S {
     return Intl.message(
       'Light Green',
       name: 'lightGreenColor',
-      desc: '',
+      desc: 'readable color name of light green',
       args: [],
     );
   }
@@ -623,7 +624,7 @@ class S {
     return Intl.message(
       'of light green',
       name: 'ofLightGreenColor',
-      desc: '',
+      desc: 'form of name for using in app bar on the color_shade_page.dart',
       args: [],
     );
   }
@@ -633,7 +634,7 @@ class S {
     return Intl.message(
       'Lime',
       name: 'limeColor',
-      desc: '',
+      desc: 'readable color name of lime',
       args: [],
     );
   }
@@ -643,7 +644,7 @@ class S {
     return Intl.message(
       'of lime',
       name: 'ofLimeColor',
-      desc: '',
+      desc: 'form of name for using in app bar on the color_shade_page.dart',
       args: [],
     );
   }
@@ -653,7 +654,7 @@ class S {
     return Intl.message(
       'Yellow',
       name: 'yellowColor',
-      desc: '',
+      desc: 'readable color name of yellow',
       args: [],
     );
   }
@@ -663,7 +664,7 @@ class S {
     return Intl.message(
       'of yellow',
       name: 'ofYellowColor',
-      desc: '',
+      desc: 'form of name for using in app bar on the color_shade_page.dart',
       args: [],
     );
   }
@@ -673,7 +674,7 @@ class S {
     return Intl.message(
       'Amber',
       name: 'amberColor',
-      desc: '',
+      desc: 'readable color name of amber',
       args: [],
     );
   }
@@ -683,7 +684,7 @@ class S {
     return Intl.message(
       'of amber',
       name: 'ofAmberColor',
-      desc: '',
+      desc: 'form of name for using in app bar on the color_shade_page.dart',
       args: [],
     );
   }
@@ -693,7 +694,7 @@ class S {
     return Intl.message(
       'Orange',
       name: 'orangeColor',
-      desc: '',
+      desc: 'readable color name of orange',
       args: [],
     );
   }
@@ -703,7 +704,7 @@ class S {
     return Intl.message(
       'of orange',
       name: 'ofOrangeColor',
-      desc: '',
+      desc: 'form of name for using in app bar on the color_shade_page.dart',
       args: [],
     );
   }
@@ -713,7 +714,7 @@ class S {
     return Intl.message(
       'Deep Orange',
       name: 'deepOrangeColor',
-      desc: '',
+      desc: 'readable color name of deep orange',
       args: [],
     );
   }
@@ -723,7 +724,7 @@ class S {
     return Intl.message(
       'of deep orange',
       name: 'ofDeepOrangeColor',
-      desc: '',
+      desc: 'form of name for using in app bar on the color_shade_page.dart',
       args: [],
     );
   }
@@ -733,7 +734,7 @@ class S {
     return Intl.message(
       'Brown',
       name: 'brownColor',
-      desc: '',
+      desc: 'readable color name of brown',
       args: [],
     );
   }
@@ -743,7 +744,7 @@ class S {
     return Intl.message(
       'of brown',
       name: 'ofBrownColor',
-      desc: '',
+      desc: 'form of name for using in app bar on the color_shade_page.dart',
       args: [],
     );
   }
@@ -753,7 +754,7 @@ class S {
     return Intl.message(
       'Grey',
       name: 'greyColor',
-      desc: '',
+      desc: 'readable color name of grey',
       args: [],
     );
   }
@@ -763,7 +764,7 @@ class S {
     return Intl.message(
       'of grey',
       name: 'ofGreyColor',
-      desc: '',
+      desc: 'form of name for using in app bar on the color_shade_page.dart',
       args: [],
     );
   }
@@ -773,7 +774,7 @@ class S {
     return Intl.message(
       'Blue Grey',
       name: 'blueGreyColor',
-      desc: '',
+      desc: 'readable color name of blue grey',
       args: [],
     );
   }
@@ -783,7 +784,7 @@ class S {
     return Intl.message(
       'of blue grey',
       name: 'ofBlueGreyColor',
-      desc: '',
+      desc: 'form of name for using in app bar on the color_shade_page.dart',
       args: [],
     );
   }

@@ -33,11 +33,7 @@ class SettingsPage extends StatelessWidget {
 
   String getCurrentLanguageName(BuildContext context){
     String current = Localizations.localeOf(context).toString();
-    if(Constants.languageNames.containsKey(current)){
-      return Constants.languageNames[current]!;
-    }else{
-      return S.of(context).systemWordAdjective;
-    }
+    return AppLocale.getLanguageName(current);
   }
 
   Widget settings(BuildContext context){
@@ -97,7 +93,7 @@ class SettingsPage extends StatelessWidget {
           ),
           for (var locale in AppLocale.supportedLocales)
             SimpleDialogOption(
-              child: Text(Constants.languageNames[locale.toString()]!),
+              child: Text(AppLocale.getLanguageName(locale.toString())),
               onPressed: () => context.router.pop(locale.toString()),
             ),
         ],
