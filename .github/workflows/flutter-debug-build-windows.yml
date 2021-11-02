@@ -21,6 +21,11 @@ jobs:
       run: flutter config --enable-windows-desktop
     - name: Build debug windows version
       run: flutter build windows --debug
+    - name: Uploading debug build for windows (64-bit)
+      uses: actions/upload-artifact@v2
+      with:
+        name: MP-debug-windows-64bit-commit-${{github.sha}}
+        path: build\windows\runner\Debug
     # This step commented because linux-related part is not included into project yet
     # - name: Enable desktop support
     #   run: flutter config --enable-linux-desktop
