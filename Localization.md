@@ -13,7 +13,7 @@
     ```
 
 4. All strings that should be translated are defined as key-value: `"keyOfSomeString": "Some string"`
-If you open `intl_en_US.arb`, you'll found:
+    If you open `intl_en_US.arb`, you'll found:
 
     ```arb
     {
@@ -32,26 +32,12 @@ If you open `intl_en_US.arb`, you'll found:
     }
     ```
 
-    4.1 The required for translation part is `"baseColors": "Base colors"` and `"shades": "Shades"`.
-    The key for usage in app is `baseColors` and it's actual string in english is `Base colors`. The same situation with all next strings.
+    4.1 The required for translation part (from the example above) are localized values - `"Base colors"` and `"Shades"`.
+    The `baseColors` and `shades` here are keys for usage in app. They should not be translated.
 
-    4.2 All entries should be separated by commas.
+    4.2 There are also entries, which keys started with `@`. They are optional and used to provide some description (usage context or anything else) to entries without `@`. So `@baseColors` contains description for entry with key `baseColors` and so on. It's not necessary to translate them, but you can do it if you wish.
 
-    4.3 There shouldn't be comma after last entry.
-
-    4.4 While `"key": "value"` should be translated, there are entries looks like `@key` - they are optional and contains description of strings defined by `key` and additional info (i.e. if placeholders used - then info about placeholder and etc)
-
-    4.5 Finally minimal translated file should look like (russian example):
-
-    ```arb
-    {
-        "@@locale": "ru_RU",
-        "baseColors": "Базовые цвета",
-        "shades": "Оттенки",    // all entries separated by commas
-        ...
-        "ofBlueGreyColor": "сине серого"    // comma not used after last entry
-    }
-    ```
+    4.3 ARB files uses the JSON syntax, so don't forget to separate entries with commas
 
 5. **WARNING:** you don't need to work with files in `lib/generated/intl` because they are generated from `intl_*_*.arb` files!
 
