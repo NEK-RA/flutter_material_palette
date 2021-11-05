@@ -1,6 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:material_palette/data/constants.dart';
 import 'package:material_palette/data/cubits/settings/settings_cubit.dart';
+import 'package:material_palette/data/repositories/updates_repository.dart';
 import 'package:material_palette/locale.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -116,36 +117,147 @@ class SettingsPage extends StatelessWidget {
           title: Text(S.of(context).aboutAppHomepage),
           subtitle: const Text(Constants.homepageUrl),
           leading: const Icon(Icons.home),
-          onTap: launchHomepage,
+          onTap: () => openUrl(Constants.homepageUrl),
         ),
         const Divider(),
         ListTile(
           title: Text('${S.of(context).aboutAppVersionTitle} — ${Constants.appVersion} ${S.of(context).buildWord} ${Constants.appBuild}'),
           subtitle: Text(S.of(context).aboutAppVersionSubtitle),
           leading: const Icon(Icons.info),
-          onTap: (){
-            ScaffoldMessenger.of(context).showSnackBar(
-              SnackBar(
-                content: Row(
-                  children: [
-                    const Spacer(),
-                    Text(S.of(context).notImplementedString),
-                    const Spacer()
-                  ]
-                ),
-                duration: const Duration(seconds: 3),
-              )
-            );
-          },
+          onTap: ()=> checkUpdates(context: context,snackbar: false),
         )
 
       ],
     );
   }
 
-  void launchHomepage() async {
+  void openUrl(String url) async {
     await canLaunch(Constants.homepageUrl) ?
       await launch(Constants.homepageUrl) :
       throw 'Could not launch ${Constants.homepageUrl}';
+  }
+
+  void checkUpdates({bool snackbar=true, required BuildContext context}) async {
+    if(snackbar){
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Row(
+            children: [
+              const Spacer(),
+              Text(S.of(context).notImplementedString),
+              const Spacer()
+            ]
+          ),
+          duration: const Duration(seconds: 3),
+        )
+      );
+    }else{
+      Update info = await UpdatesRepository.checkUpdates(context);
+      if(info is UpdateNotNeeded){
+        showDialog(
+          context: context,
+          builder: (context){
+            return AlertDialog(
+              title: Text(S.of(context).noNewUpdatesTitle),
+              content: Text(S.of(context).usingLatestVersion),
+              actions: [
+                ElevatedButton(
+                  onPressed: () => context.router.pop(),
+                  child: const Text('OK')
+                )
+              ],
+            );
+          }
+        );
+      }else if(info is UpdateError){
+        showDialog(
+          context: context,
+          builder: (context){
+            return SimpleDialog(
+              title: Text(S.of(context).updateErrorReceivedTitle),
+              children: [
+                ListTile(
+                  title: Text(info.message),
+                  dense: true
+                ),
+                ListTile(
+                  title: Text(S.of(context).responseStatus(info.status)),
+                  dense: true
+                ),
+                const Divider(),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                  child: SizedBox(
+                    width: 300,
+                    height: 220,
+                    child: ListView(
+                      children: [
+                        Text(S.of(context).responseBody(info.body))
+                      ],
+                    ),
+                  ),
+                ),
+                const Divider(),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                  child: ElevatedButton(
+                    onPressed: () => context.router.pop(),
+                    child: const Text('OK')
+                  ),
+                )
+              ],
+            );
+          }
+        );
+      }else if(info is GithubUpdate){
+        showDialog(
+          context: context,
+          builder: (context){
+            return SimpleDialog(
+              title: Text('${S.of(context).updateFoundTitle} ${info.isPreRelease ? ' (${S.of(context).prereleaseWord})' : ''}'),
+              children: [
+                ListTile(
+                  title: Text('${S.of(context).aboutAppVersionTitle}: ${info.version}'),
+                  dense: true
+                ),
+                ListTile(
+                  title: Text(S.of(context).publishedAtDate(info.published)),
+                  dense: true
+                ),
+                const Divider(),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                  child: SizedBox(
+                    width: 300,
+                    height: 220,
+                    child: ListView(
+                      children: [
+                        Text(info.description)
+                      ],
+                    ),
+                  ),
+                ),
+                const Divider(),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                    child: ElevatedButton(
+                    onPressed: () => context.router.pop(),
+                    child: Text(S.of(context).closeWord)
+                  )
+                ),
+                const SizedBox(height: 10.0),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                  child: ElevatedButton(
+                    onPressed: () => openUrl(info.url),
+                    child: Text(S.of(context).openWord)
+                  )
+                )
+              ],
+            );
+          }
+        );
+      }
+    }
   }
 }
