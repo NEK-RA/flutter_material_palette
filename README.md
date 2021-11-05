@@ -41,7 +41,7 @@ I'm using this project to learn Flutter and few related packages. That's why som
   - ~~RGB value with alpha channel value~~ done RGB only, because alpha channel (for rgba) is not used at all, so there's no transparent colors
   - ~~Flutter's variable (i.e. `Colors.red[400]` or `Colors.blueGrey.shade500`)~~ done
 
-- [ ] Add update checks with [http](https://pub.dev/packages/http) package
+- [x] ~~Add update checks with [http](https://pub.dev/packages/http) package~~ done
 - [ ] Add check for available screen width to adjust ColorCard size for that and allow set limit for columns in grid depending on that info
 - [ ] **IMOPRTANT** learn testing
 - [ ] **Probably** return FloatingActionButton widget instead of IconButton in the AppBar, but this required animation.
