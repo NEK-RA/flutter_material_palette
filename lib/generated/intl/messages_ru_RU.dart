@@ -19,6 +19,14 @@ typedef String MessageIfAbsent(String messageStr, List<dynamic> args);
 class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'ru_RU';
 
+  static String m0(date) => "Выпущено: ${date}";
+
+  static String m1(fields) => "Необходимые поля JSON(${fields}) не найдены!";
+
+  static String m2(body) => "Тело ответа:\n${body}";
+
+  static String m3(status) => "Статус ответа: ${status}";
+
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "about": MessageLookupByLibrary.simpleMessage("О приложении"),
@@ -36,6 +44,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "blueGreyColor": MessageLookupByLibrary.simpleMessage("Сине Серый"),
         "brownColor": MessageLookupByLibrary.simpleMessage("Коричневый"),
         "buildWord": MessageLookupByLibrary.simpleMessage("сборка"),
+        "closeWord": MessageLookupByLibrary.simpleMessage("Закрыть"),
         "columnCountSettingSubtitle": MessageLookupByLibrary.simpleMessage(
             "На текущий момент доступны значения только 2 и 3, используется для обоих сеток"),
         "columnCountSettingTitle":
@@ -74,24 +83,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "lightGreenColor":
             MessageLookupByLibrary.simpleMessage("Светло Зеленый"),
         "limeColor": MessageLookupByLibrary.simpleMessage("Лаймовый"),
-        "listOnColorsScreenSettingSubtitleForDisabled":
-            MessageLookupByLibrary.simpleMessage(
-                "Цвета отображены в виде сетки"),
-        "listOnColorsScreenSettingSubtitleForEnabled":
-            MessageLookupByLibrary.simpleMessage(
-                "Цвета отображены в виде списка"),
-        "listOnColorsScreenSettingTitle": MessageLookupByLibrary.simpleMessage(
-            "Отображать список на экране цветов"),
-        "listOnShadesScreenSettingSubtitleForDisabled":
-            MessageLookupByLibrary.simpleMessage(
-                "Оттенки отображены в виде сетки"),
-        "listOnShadesScreenSettingSubtitleForEnabled":
-            MessageLookupByLibrary.simpleMessage(
-                "Оттенки отображены в виде списка"),
-        "listOnShadesScreenSettingTitle": MessageLookupByLibrary.simpleMessage(
-            "Отображать список на экране оттенков"),
+        "noNewUpdatesTitle":
+            MessageLookupByLibrary.simpleMessage("Обновлений не найдено"),
         "notImplementedString":
             MessageLookupByLibrary.simpleMessage("ЕЩЕ НЕ РЕАЛИЗОВАНО"),
+        "notLikeReleaseJsonString": MessageLookupByLibrary.simpleMessage(
+            "Не выглядит как JSON-объект отдельного релиза!"),
         "ofAmberColor": MessageLookupByLibrary.simpleMessage("янтарного"),
         "ofBlueColor": MessageLookupByLibrary.simpleMessage("синего"),
         "ofBlueGreyColor": MessageLookupByLibrary.simpleMessage("сине серого"),
@@ -114,10 +111,16 @@ class MessageLookup extends MessageLookupByLibrary {
         "ofRedColor": MessageLookupByLibrary.simpleMessage("красного"),
         "ofTealColor": MessageLookupByLibrary.simpleMessage("бирюзового"),
         "ofYellowColor": MessageLookupByLibrary.simpleMessage("жёлтого"),
+        "openWord": MessageLookupByLibrary.simpleMessage("Открыть"),
         "orangeColor": MessageLookupByLibrary.simpleMessage("Оранжевый"),
         "pinkColor": MessageLookupByLibrary.simpleMessage("Розовый"),
+        "prereleaseWord": MessageLookupByLibrary.simpleMessage("Пред-Релиз"),
+        "publishedAtDate": m0,
         "purpleColor": MessageLookupByLibrary.simpleMessage("Фиолетовый"),
         "redColor": MessageLookupByLibrary.simpleMessage("Красный"),
+        "requiredFieldsNotFoundString": m1,
+        "responseBody": m2,
+        "responseStatus": m3,
         "rgbValueOfColorString":
             MessageLookupByLibrary.simpleMessage("RGB значение цвета"),
         "settings": MessageLookupByLibrary.simpleMessage("Настройки"),
@@ -128,6 +131,14 @@ class MessageLookup extends MessageLookupByLibrary {
         "systemWordAdjective":
             MessageLookupByLibrary.simpleMessage("Системный"),
         "tealColor": MessageLookupByLibrary.simpleMessage("Бирюзовый"),
+        "unexpectedReponseString":
+            MessageLookupByLibrary.simpleMessage("Неожиданный ответ!"),
+        "updateErrorReceivedTitle": MessageLookupByLibrary.simpleMessage(
+            "Ошибка при проверке обновлений"),
+        "updateFoundTitle":
+            MessageLookupByLibrary.simpleMessage("Найдено обновление"),
+        "usingLatestVersion": MessageLookupByLibrary.simpleMessage(
+            "Вы используете последнюю версию"),
         "yellowColor": MessageLookupByLibrary.simpleMessage("Жёлтый")
       };
 }

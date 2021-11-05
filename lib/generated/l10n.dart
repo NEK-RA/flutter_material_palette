@@ -206,70 +206,6 @@ class S {
     );
   }
 
-  /// `Display list on colors screen`
-  String get listOnColorsScreenSettingTitle {
-    return Intl.message(
-      'Display list on colors screen',
-      name: 'listOnColorsScreenSettingTitle',
-      desc: 'Label for the switch on the settings_page.dart',
-      args: [],
-    );
-  }
-
-  /// `Colors are shown as list`
-  String get listOnColorsScreenSettingSubtitleForEnabled {
-    return Intl.message(
-      'Colors are shown as list',
-      name: 'listOnColorsScreenSettingSubtitleForEnabled',
-      desc:
-          'Subtitle of setting which switching between list and grid view for colors. Case of list view enabled.',
-      args: [],
-    );
-  }
-
-  /// `Colors are shown as grid`
-  String get listOnColorsScreenSettingSubtitleForDisabled {
-    return Intl.message(
-      'Colors are shown as grid',
-      name: 'listOnColorsScreenSettingSubtitleForDisabled',
-      desc:
-          'Subtitle of setting which switching between list and grid view for colors. Case of list view disabled.',
-      args: [],
-    );
-  }
-
-  /// `Display list on shades screen`
-  String get listOnShadesScreenSettingTitle {
-    return Intl.message(
-      'Display list on shades screen',
-      name: 'listOnShadesScreenSettingTitle',
-      desc: 'Label for the switch on the settings_page.dart',
-      args: [],
-    );
-  }
-
-  /// `Shades are shown as list`
-  String get listOnShadesScreenSettingSubtitleForEnabled {
-    return Intl.message(
-      'Shades are shown as list',
-      name: 'listOnShadesScreenSettingSubtitleForEnabled',
-      desc:
-          'Subtitle of setting which switching between list and grid view for shades. Case of list view enabled.',
-      args: [],
-    );
-  }
-
-  /// `Shades are shown as grid`
-  String get listOnShadesScreenSettingSubtitleForDisabled {
-    return Intl.message(
-      'Shades are shown as grid',
-      name: 'listOnShadesScreenSettingSubtitleForDisabled',
-      desc:
-          'Subtitle of setting which switching between list and grid view for shades. Case of list view disabled.',
-      args: [],
-    );
-  }
-
   /// `Dark theme`
   String get darkThemeSettingTitle {
     return Intl.message(
@@ -351,6 +287,140 @@ class S {
       'Tap here to check for updates',
       name: 'aboutAppVersionSubtitle',
       desc: 'Subtitle of ListTile related to app version.',
+      args: [],
+    );
+  }
+
+  /// `Update found`
+  String get updateFoundTitle {
+    return Intl.message(
+      'Update found',
+      name: 'updateFoundTitle',
+      desc: 'Title for the update info dialog when update found',
+      args: [],
+    );
+  }
+
+  /// `Published: {date}`
+  String publishedAtDate(Object date) {
+    return Intl.message(
+      'Published: $date',
+      name: 'publishedAtDate',
+      desc: 'String to display publish date of found update',
+      args: [date],
+    );
+  }
+
+  /// `Pre-Release`
+  String get prereleaseWord {
+    return Intl.message(
+      'Pre-Release',
+      name: 'prereleaseWord',
+      desc: 'Will be displayed if found update is prerelease',
+      args: [],
+    );
+  }
+
+  /// `Close`
+  String get closeWord {
+    return Intl.message(
+      'Close',
+      name: 'closeWord',
+      desc: 'Button on update dialog',
+      args: [],
+    );
+  }
+
+  /// `Open`
+  String get openWord {
+    return Intl.message(
+      'Open',
+      name: 'openWord',
+      desc: 'Button on update dialog',
+      args: [],
+    );
+  }
+
+  /// `Updates not found`
+  String get noNewUpdatesTitle {
+    return Intl.message(
+      'Updates not found',
+      name: 'noNewUpdatesTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `You are using latest version`
+  String get usingLatestVersion {
+    return Intl.message(
+      'You are using latest version',
+      name: 'usingLatestVersion',
+      desc: 'Text for body of dialog when no updates found',
+      args: [],
+    );
+  }
+
+  /// `Error during check for updates`
+  String get updateErrorReceivedTitle {
+    return Intl.message(
+      'Error during check for updates',
+      name: 'updateErrorReceivedTitle',
+      desc: 'Title for dialog on any update error',
+      args: [],
+    );
+  }
+
+  /// `Response status: {status}`
+  String responseStatus(Object status) {
+    return Intl.message(
+      'Response status: $status',
+      name: 'responseStatus',
+      desc:
+          'String for displaying response status in dialog from UpdateError object from updates_repository.dart',
+      args: [status],
+    );
+  }
+
+  /// `Response body:\n{body}`
+  String responseBody(Object body) {
+    return Intl.message(
+      'Response body:\n$body',
+      name: 'responseBody',
+      desc:
+          'String for displaying response body in dialog from UpdateError object from updates_repository.dart',
+      args: [body],
+    );
+  }
+
+  /// `Unexpected response!`
+  String get unexpectedReponseString {
+    return Intl.message(
+      'Unexpected response!',
+      name: 'unexpectedReponseString',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Required JSON fields ({fields}) not found!`
+  String requiredFieldsNotFoundString(Object fields) {
+    return Intl.message(
+      'Required JSON fields ($fields) not found!',
+      name: 'requiredFieldsNotFoundString',
+      desc:
+          'Used to display in UpdateError object from updates_repository.dart',
+      args: [fields],
+    );
+  }
+
+  /// `Doesn't look like JSON object of single release!`
+  String get notLikeReleaseJsonString {
+    return Intl.message(
+      'Doesn\'t look like JSON object of single release!',
+      name: 'notLikeReleaseJsonString',
+      desc:
+          'Used to display in UpdateError object from updates_repository.dart',
       args: [],
     );
   }

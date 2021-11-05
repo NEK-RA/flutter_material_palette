@@ -19,6 +19,14 @@ typedef String MessageIfAbsent(String messageStr, List<dynamic> args);
 class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'en_US';
 
+  static String m0(date) => "Published: ${date}";
+
+  static String m1(fields) => "Required JSON fields (${fields}) not found!";
+
+  static String m2(body) => "Response body:\n${body}";
+
+  static String m3(status) => "Response status: ${status}";
+
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "about": MessageLookupByLibrary.simpleMessage("About"),
@@ -36,6 +44,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "blueGreyColor": MessageLookupByLibrary.simpleMessage("Blue Grey"),
         "brownColor": MessageLookupByLibrary.simpleMessage("Brown"),
         "buildWord": MessageLookupByLibrary.simpleMessage("build"),
+        "closeWord": MessageLookupByLibrary.simpleMessage("Close"),
         "columnCountSettingSubtitle": MessageLookupByLibrary.simpleMessage(
             "Currently between 2 and 3 only, used for both colors and shades grid"),
         "columnCountSettingTitle":
@@ -70,20 +79,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "lightBlueColor": MessageLookupByLibrary.simpleMessage("Light Blue"),
         "lightGreenColor": MessageLookupByLibrary.simpleMessage("Light Green"),
         "limeColor": MessageLookupByLibrary.simpleMessage("Lime"),
-        "listOnColorsScreenSettingSubtitleForDisabled":
-            MessageLookupByLibrary.simpleMessage("Colors are shown as grid"),
-        "listOnColorsScreenSettingSubtitleForEnabled":
-            MessageLookupByLibrary.simpleMessage("Colors are shown as list"),
-        "listOnColorsScreenSettingTitle": MessageLookupByLibrary.simpleMessage(
-            "Display list on colors screen"),
-        "listOnShadesScreenSettingSubtitleForDisabled":
-            MessageLookupByLibrary.simpleMessage("Shades are shown as grid"),
-        "listOnShadesScreenSettingSubtitleForEnabled":
-            MessageLookupByLibrary.simpleMessage("Shades are shown as list"),
-        "listOnShadesScreenSettingTitle": MessageLookupByLibrary.simpleMessage(
-            "Display list on shades screen"),
+        "noNewUpdatesTitle":
+            MessageLookupByLibrary.simpleMessage("Updates not found"),
         "notImplementedString":
             MessageLookupByLibrary.simpleMessage("NOT IMPLEMENTED YET"),
+        "notLikeReleaseJsonString": MessageLookupByLibrary.simpleMessage(
+            "Doesn\'t look like JSON object of single release!"),
         "ofAmberColor": MessageLookupByLibrary.simpleMessage("of amber"),
         "ofBlueColor": MessageLookupByLibrary.simpleMessage("of blue"),
         "ofBlueGreyColor": MessageLookupByLibrary.simpleMessage("of blue grey"),
@@ -107,10 +108,16 @@ class MessageLookup extends MessageLookupByLibrary {
         "ofRedColor": MessageLookupByLibrary.simpleMessage("of Red"),
         "ofTealColor": MessageLookupByLibrary.simpleMessage("of teal"),
         "ofYellowColor": MessageLookupByLibrary.simpleMessage("of yellow"),
+        "openWord": MessageLookupByLibrary.simpleMessage("Open"),
         "orangeColor": MessageLookupByLibrary.simpleMessage("Orange"),
         "pinkColor": MessageLookupByLibrary.simpleMessage("Pink"),
+        "prereleaseWord": MessageLookupByLibrary.simpleMessage("Pre-Release"),
+        "publishedAtDate": m0,
         "purpleColor": MessageLookupByLibrary.simpleMessage("Purple"),
         "redColor": MessageLookupByLibrary.simpleMessage("Red"),
+        "requiredFieldsNotFoundString": m1,
+        "responseBody": m2,
+        "responseStatus": m3,
         "rgbValueOfColorString":
             MessageLookupByLibrary.simpleMessage("RGB value of color"),
         "settings": MessageLookupByLibrary.simpleMessage("Settings"),
@@ -120,6 +127,14 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Switch view ( list / grid )"),
         "systemWordAdjective": MessageLookupByLibrary.simpleMessage("System"),
         "tealColor": MessageLookupByLibrary.simpleMessage("Teal"),
+        "unexpectedReponseString":
+            MessageLookupByLibrary.simpleMessage("Unexpected response!"),
+        "updateErrorReceivedTitle": MessageLookupByLibrary.simpleMessage(
+            "Error during check for updates"),
+        "updateFoundTitle":
+            MessageLookupByLibrary.simpleMessage("Update found"),
+        "usingLatestVersion": MessageLookupByLibrary.simpleMessage(
+            "You are using latest version"),
         "yellowColor": MessageLookupByLibrary.simpleMessage("Yellow")
       };
 }

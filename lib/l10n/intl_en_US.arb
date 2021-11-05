@@ -76,36 +76,6 @@
       "description": "The word to be used as name for default language (System language)"
     },
 
-    "listOnColorsScreenSettingTitle": "Display list on colors screen",
-    "@listOnColorsScreenSettingTitle": {
-      "description": "Label for the switch on the settings_page.dart"
-    },
-
-    "listOnColorsScreenSettingSubtitleForEnabled": "Colors are shown as list",
-    "@listOnColorsScreenSettingSubtitleForEnabled": {
-      "description": "Subtitle of setting which switching between list and grid view for colors. Case of list view enabled."
-    },
-
-    "listOnColorsScreenSettingSubtitleForDisabled": "Colors are shown as grid",
-    "@listOnColorsScreenSettingSubtitleForDisabled": {
-      "description": "Subtitle of setting which switching between list and grid view for colors. Case of list view disabled."
-    },
-
-    "listOnShadesScreenSettingTitle": "Display list on shades screen",
-    "@listOnShadesScreenSettingTitle": {
-      "description": "Label for the switch on the settings_page.dart"
-    },
-
-    "listOnShadesScreenSettingSubtitleForEnabled": "Shades are shown as list",
-    "@listOnShadesScreenSettingSubtitleForEnabled": {
-      "description": "Subtitle of setting which switching between list and grid view for shades. Case of list view enabled."
-    },
-
-    "listOnShadesScreenSettingSubtitleForDisabled": "Shades are shown as grid",
-    "@listOnShadesScreenSettingSubtitleForDisabled": {
-      "description": "Subtitle of setting which switching between list and grid view for shades. Case of list view disabled."
-    },
-
     "darkThemeSettingTitle": "Dark theme",
     "@darkThemeSettingTitle": {
       "description": "Title of theme switcher"
@@ -144,6 +114,95 @@
     "aboutAppVersionSubtitle": "Tap here to check for updates",
     "@aboutAppVersionSubtitle": {
       "description": "Subtitle of ListTile related to app version."
+    },
+
+    "updateFoundTitle": "Update found",
+    "@updateFoundTitle": {
+      "description": "Title for the update info dialog when update found"
+    },
+
+    "publishedAtDate": "Published: {date}",
+    "@publishedAtDate": {
+      "description": "String to display publish date of found update",
+      "placeholders": {
+        "date": {
+          "type": "String",
+          "example": "1/1/2022 00:00:00"
+        }
+      }
+    },
+
+    "prereleaseWord":"Pre-Release",
+    "@prereleaseWord": {
+      "description": "Will be displayed if found update is prerelease"
+    },
+
+    "closeWord": "Close",
+    "@closeWord": {
+      "description": "Button on update dialog"
+    },
+
+    "openWord": "Open",
+    "@openWord": {
+      "description": "Button on update dialog"
+    },
+
+    "noNewUpdatesTitle": "Updates not found",
+    "@noNewUpdateTitle": {
+      "description": "Title for update info dialog, when no updates found"
+    },
+
+    "usingLatestVersion": "You are using latest version",
+    "@usingLatestVersion": {
+      "description": "Text for body of dialog when no updates found"
+    },
+
+    "updateErrorReceivedTitle":"Error during check for updates",
+    "@updateErrorReceivedTitle": {
+      "description": "Title for dialog on any update error"
+    },
+
+    "responseStatus": "Response status: {status}",
+    "@responseStatus": {
+      "description": "String for displaying response status in dialog from UpdateError object from updates_repository.dart",
+      "placeholders": {
+        "status": {
+          "type": "String",
+          "example": "200 - OK"
+        }
+      }
+    },
+
+    "responseBody": "Response body:\n{body}",
+    "@responseBody": {
+      "description": "String for displaying response body in dialog from UpdateError object from updates_repository.dart",
+      "placeholders": {
+        "body": {
+          "type": "String",
+          "example": "There may be any text which was received by http response"
+        }
+      }
+    },
+
+    "unexpectedReponseString": "Unexpected response!",
+    "@unexpectedResponseString": {
+      "description": "Used to display in UpdateError object from updates_repository.dart"
+    },
+
+    "requiredFieldsNotFoundString": "Required JSON fields ({fields}) not found!",
+    "@requiredFieldsNotFoundString":{
+      "description": "Used to display in UpdateError object from updates_repository.dart",
+      "placeholders": {
+        "fields": {
+          "type": "String",
+          "example": "url, body, etc"
+        }
+      }
+    },
+
+    "notLikeReleaseJsonString": "Doesn't look like JSON object of single release!",
+    "@notLikeReleaseJsonString": {
+      "description": "Used to display in UpdateError object from updates_repository.dart"
     },
 
     "notImplementedString": "NOT IMPLEMENTED YET",
