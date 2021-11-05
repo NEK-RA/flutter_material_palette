@@ -1,5 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:material_palette/data/constants.dart';
+import 'package:material_palette/data/cubits/progress_indicators/progress_indicators_cubit.dart';
 import 'package:material_palette/data/cubits/settings/settings_cubit.dart';
 import 'package:material_palette/data/repositories/updates_repository.dart';
 import 'package:material_palette/locale.dart';
@@ -8,7 +9,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class SettingsPage extends StatelessWidget {
-  const SettingsPage({ Key? key }) : super(key: key);
+  const SettingsPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -26,91 +27,86 @@ class SettingsPage extends StatelessWidget {
           ListTile(
             title: Text(S.of(context).about),
           ),
-          Card(child: about(context))
+          Card(child: about(context)),
         ],
       )
     );
   }
 
-  String getCurrentLanguageName(BuildContext context){
+  String getCurrentLanguageName(BuildContext context) {
     String current = Localizations.localeOf(context).toString();
     return AppLocale.getLanguageName(current);
   }
 
-  Widget settings(BuildContext context){
-    return BlocBuilder<SettingsCubit,SettingsState>(
-        builder: (context,state){
-          String currentLanguage = state.languageChanged ? getCurrentLanguageName(context) : '${S.of(context).systemWordAdjective} (${getCurrentLanguageName(context)})';
-          return Column(
-            children: [
-              
-              ListTile(
-                title: Text(S.of(context).appLanguageSettingTitle),
-                subtitle: Text(S.of(context).currentLanguageString + currentLanguage),
-                onTap: () => showLanguagesDialog(context),
-              ),
-              
-              const Divider(),
-              
-              SwitchListTile(
-                title: Text(S.of(context).darkThemeSettingTitle),
-                subtitle: Text(S.of(context).darkThemeSettingSubtitle),
-                value: state.darkTheme,
-                onChanged: (bool _) => context.read<SettingsCubit>().switchTheme(),
-              ),
-              
-              const Divider(),
-              
-              ListTile(
-                title: Text(S.of(context).columnCountSettingTitle),
-                subtitle: Text(S.of(context).columnCountSettingSubtitle),
-              ),
-              Slider(
-                max: 3,
-                min: 2,
-                divisions: 1,
-                value: state.columnsInGrid.toDouble(),
-                label: state.columnsInGrid.toString(), 
-                onChanged: (double newValue){
-                  context.read<SettingsCubit>().setColumnsCount(newValue.toInt());
-                }
-              )
-            ],
-          );
-        }
+  Widget settings(BuildContext context) {
+    return BlocBuilder<SettingsCubit, SettingsState>(builder: (context, state) {
+      String currentLanguage = state.languageChanged
+          ? getCurrentLanguageName(context)
+          : '${S.of(context).systemWordAdjective} (${getCurrentLanguageName(context)})';
+      return Column(
+        children: [
+          ListTile(
+            title: Text(S.of(context).appLanguageSettingTitle),
+            subtitle:
+                Text(S.of(context).currentLanguageString + currentLanguage),
+            onTap: () => showLanguagesDialog(context),
+          ),
+          const Divider(),
+          SwitchListTile(
+            title: Text(S.of(context).darkThemeSettingTitle),
+            subtitle: Text(S.of(context).darkThemeSettingSubtitle),
+            value: state.darkTheme,
+            onChanged: (bool _) => context.read<SettingsCubit>().switchTheme(),
+          ),
+          const Divider(),
+          ListTile(
+            title: Text(S.of(context).columnCountSettingTitle),
+            subtitle: Text(S.of(context).columnCountSettingSubtitle),
+          ),
+          Slider(
+              max: 3,
+              min: 2,
+              divisions: 1,
+              value: state.columnsInGrid.toDouble(),
+              label: state.columnsInGrid.toString(),
+              onChanged: (double newValue) {
+                context.read<SettingsCubit>().setColumnsCount(newValue.toInt());
+              })
+        ],
       );
+    });
   }
 
   void showLanguagesDialog(BuildContext context) async {
     String? selectedLocale = await showDialog<String>(
-      context: context,
-      builder:(context){
-      return SimpleDialog(
-        title: Text(S.of(context).appLanguageSettingTitle),
-        children: [
-          SimpleDialogOption(
-            child: Text(S.of(context).systemWordAdjective),
-            onPressed: () => context.router.pop('system'),
-          ),
-          for (var locale in AppLocale.supportedLocales)
-            SimpleDialogOption(
-              child: Text(AppLocale.getLanguageName(locale.toString())),
-              onPressed: () => context.router.pop(locale.toString()),
-            ),
-        ],
-      );
-    });
+        context: context,
+        builder: (context) {
+          return SimpleDialog(
+            title: Text(S.of(context).appLanguageSettingTitle),
+            children: [
+              SimpleDialogOption(
+                child: Text(S.of(context).systemWordAdjective),
+                onPressed: () => context.router.pop('system'),
+              ),
+              for (var locale in AppLocale.supportedLocales)
+                SimpleDialogOption(
+                  child: Text(AppLocale.getLanguageName(locale.toString())),
+                  onPressed: () => context.router.pop(locale.toString()),
+                ),
+            ],
+          );
+        });
 
-    if(selectedLocale!=null){
-      if(selectedLocale == 'system'){
+    if (selectedLocale != null) {
+      if (selectedLocale == 'system') {
         context.read<SettingsCubit>().useSystemLanguage();
-      }else{
+      } else {
         context.read<SettingsCubit>().changeLanguage(selectedLocale);
       }
     }
   }
 
-  Widget about(BuildContext context){
+  Widget about(BuildContext context) {
     return Column(
       children: [
         ListTile(
@@ -120,70 +116,57 @@ class SettingsPage extends StatelessWidget {
           onTap: () => openUrl(Constants.homepageUrl),
         ),
         const Divider(),
-        ListTile(
-          title: Text('${S.of(context).aboutAppVersionTitle} — ${Constants.appVersion} ${S.of(context).buildWord} ${Constants.appBuild}'),
-          subtitle: Text(S.of(context).aboutAppVersionSubtitle),
-          leading: const Icon(Icons.info),
-          onTap: ()=> checkUpdates(context: context,snackbar: false),
+        BlocBuilder<ProgressIndicatorsCubit, ProgressIndicatorsState>(
+          builder: (context,state){
+            return ListTile(
+              title: Text(
+                  '${S.of(context).aboutAppVersionTitle} — ${Constants.appVersion} ${S.of(context).buildWord} ${Constants.appBuild}'),
+              subtitle: Text(S.of(context).aboutAppVersionSubtitle),
+              leading: const Icon(Icons.info),
+              onTap: state.updateRequestIndicator ? null : () => checkUpdates(context),
+              trailing: state.updateRequestIndicator ? const CircularProgressIndicator() : null
+            );
+          }
         )
-
       ],
     );
   }
 
   void openUrl(String url) async {
-    await canLaunch(Constants.homepageUrl) ?
-      await launch(Constants.homepageUrl) :
-      throw 'Could not launch ${Constants.homepageUrl}';
+    await canLaunch(Constants.homepageUrl)
+        ? await launch(Constants.homepageUrl)
+        : throw 'Could not launch ${Constants.homepageUrl}';
   }
 
-  void checkUpdates({bool snackbar=true, required BuildContext context}) async {
-    if(snackbar){
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          content: Row(
-            children: [
-              const Spacer(),
-              Text(S.of(context).notImplementedString),
-              const Spacer()
-            ]
-          ),
-          duration: const Duration(seconds: 3),
-        )
-      );
-    }else{
-      Update info = await UpdatesRepository.checkUpdates(context);
-      if(info is UpdateNotNeeded){
-        showDialog(
+  void checkUpdates(BuildContext context) async {
+    context.read<ProgressIndicatorsCubit>().switchUpdateIndicator();
+    Update info = await UpdatesRepository.checkUpdates(context);
+    context.read<ProgressIndicatorsCubit>().switchUpdateIndicator();
+    if (info is UpdateNotNeeded) {
+      showDialog(
           context: context,
-          builder: (context){
+          builder: (context) {
             return AlertDialog(
               title: Text(S.of(context).noNewUpdatesTitle),
               content: Text(S.of(context).usingLatestVersion),
               actions: [
                 ElevatedButton(
-                  onPressed: () => context.router.pop(),
-                  child: const Text('OK')
-                )
+                    onPressed: () => context.router.pop(),
+                    child: const Text('OK'))
               ],
             );
-          }
-        );
-      }else if(info is UpdateError){
-        showDialog(
+          });
+    } else if (info is UpdateError) {
+      showDialog(
           context: context,
-          builder: (context){
+          builder: (context) {
             return SimpleDialog(
               title: Text(S.of(context).updateErrorReceivedTitle),
               children: [
+                ListTile(title: Text(info.message), dense: true),
                 ListTile(
-                  title: Text(info.message),
-                  dense: true
-                ),
-                ListTile(
-                  title: Text(S.of(context).responseStatus(info.status)),
-                  dense: true
-                ),
+                    title: Text(S.of(context).responseStatus(info.status)),
+                    dense: true),
                 const Divider(),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 16.0),
@@ -191,9 +174,7 @@ class SettingsPage extends StatelessWidget {
                     width: 300,
                     height: 220,
                     child: ListView(
-                      children: [
-                        Text(S.of(context).responseBody(info.body))
-                      ],
+                      children: [Text(S.of(context).responseBody(info.body))],
                     ),
                   ),
                 ),
@@ -201,29 +182,27 @@ class SettingsPage extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 20.0),
                   child: ElevatedButton(
-                    onPressed: () => context.router.pop(),
-                    child: const Text('OK')
-                  ),
+                      onPressed: () => context.router.pop(),
+                      child: const Text('OK')),
                 )
               ],
             );
-          }
-        );
-      }else if(info is GithubUpdate){
-        showDialog(
+          });
+    } else if (info is GithubUpdate) {
+      showDialog(
           context: context,
-          builder: (context){
+          builder: (context) {
             return SimpleDialog(
-              title: Text('${S.of(context).updateFoundTitle} ${info.isPreRelease ? ' (${S.of(context).prereleaseWord})' : ''}'),
+              title: Text(
+                  '${S.of(context).updateFoundTitle} ${info.isPreRelease ? ' (${S.of(context).prereleaseWord})' : ''}'),
               children: [
                 ListTile(
-                  title: Text('${S.of(context).aboutAppVersionTitle}: ${info.version}'),
-                  dense: true
-                ),
+                    title: Text(
+                        '${S.of(context).aboutAppVersionTitle}: ${info.version}'),
+                    dense: true),
                 ListTile(
-                  title: Text(S.of(context).publishedAtDate(info.published)),
-                  dense: true
-                ),
+                    title: Text(S.of(context).publishedAtDate(info.published)),
+                    dense: true),
                 const Divider(),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 16.0),
@@ -231,33 +210,25 @@ class SettingsPage extends StatelessWidget {
                     width: 300,
                     height: 220,
                     child: ListView(
-                      children: [
-                        Text(info.description)
-                      ],
+                      children: [Text(info.description)],
                     ),
                   ),
                 ),
                 const Divider(),
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                    padding: const EdgeInsets.symmetric(horizontal: 20.0),
                     child: ElevatedButton(
-                    onPressed: () => context.router.pop(),
-                    child: Text(S.of(context).closeWord)
-                  )
-                ),
+                        onPressed: () => context.router.pop(),
+                        child: Text(S.of(context).closeWord))),
                 const SizedBox(height: 10.0),
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 20.0),
-                  child: ElevatedButton(
-                    onPressed: () => openUrl(info.url),
-                    child: Text(S.of(context).openWord)
-                  )
-                )
+                    padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                    child: ElevatedButton(
+                        onPressed: () => openUrl(info.url),
+                        child: Text(S.of(context).openWord)))
               ],
             );
-          }
-        );
-      }
+          });
     }
   }
 }

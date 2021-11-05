@@ -1,3 +1,4 @@
+import 'package:material_palette/data/cubits/progress_indicators/progress_indicators_cubit.dart';
 import 'package:material_palette/locale.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -28,8 +29,15 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => SettingsCubit(prefs),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider<SettingsCubit>(
+          create: (BuildContext context) => SettingsCubit(prefs),
+        ),
+        BlocProvider<ProgressIndicatorsCubit>(
+          create: (BuildContext context) => ProgressIndicatorsCubit(),
+        ),
+      ],
       child: BlocBuilder<SettingsCubit, SettingsState>(
         builder: (context, state) {
           return MaterialApp.router(
