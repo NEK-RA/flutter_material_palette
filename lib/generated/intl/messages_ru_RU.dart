@@ -19,13 +19,15 @@ typedef String MessageIfAbsent(String messageStr, List<dynamic> args);
 class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'ru_RU';
 
-  static String m0(date) => "Выпущено: ${date}";
+  static String m0(url) => "Не удается открыть: ${url}";
 
-  static String m1(fields) => "Необходимые поля JSON(${fields}) не найдены!";
+  static String m1(date) => "Выпущено: ${date}";
 
-  static String m2(body) => "Тело ответа:\n${body}";
+  static String m2(fields) => "Необходимые поля JSON(${fields}) не найдены!";
 
-  static String m3(status) => "Статус ответа: ${status}";
+  static String m3(body) => "Тело ответа:\n${body}";
+
+  static String m4(status) => "Статус ответа: ${status}";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
@@ -44,6 +46,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "blueGreyColor": MessageLookupByLibrary.simpleMessage("Сине Серый"),
         "brownColor": MessageLookupByLibrary.simpleMessage("Коричневый"),
         "buildWord": MessageLookupByLibrary.simpleMessage("сборка"),
+        "cantOpenUrlString": m0,
         "closeWord": MessageLookupByLibrary.simpleMessage("Закрыть"),
         "columnCountSettingSubtitle": MessageLookupByLibrary.simpleMessage(
             "На текущий момент доступны значения только 2 и 3, используется для обоих сеток"),
@@ -115,12 +118,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "orangeColor": MessageLookupByLibrary.simpleMessage("Оранжевый"),
         "pinkColor": MessageLookupByLibrary.simpleMessage("Розовый"),
         "prereleaseWord": MessageLookupByLibrary.simpleMessage("Пред-Релиз"),
-        "publishedAtDate": m0,
+        "publishedAtDate": m1,
         "purpleColor": MessageLookupByLibrary.simpleMessage("Фиолетовый"),
         "redColor": MessageLookupByLibrary.simpleMessage("Красный"),
-        "requiredFieldsNotFoundString": m1,
-        "responseBody": m2,
-        "responseStatus": m3,
+        "requiredFieldsNotFoundString": m2,
+        "responseBody": m3,
+        "responseStatus": m4,
         "rgbValueOfColorString":
             MessageLookupByLibrary.simpleMessage("RGB значение цвета"),
         "settings": MessageLookupByLibrary.simpleMessage("Настройки"),

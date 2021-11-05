@@ -3,10 +3,10 @@ import 'package:material_palette/data/constants.dart';
 import 'package:material_palette/data/cubits/progress_indicators/progress_indicators_cubit.dart';
 import 'package:material_palette/data/cubits/settings/settings_cubit.dart';
 import 'package:material_palette/data/repositories/updates_repository.dart';
+import 'package:material_palette/data/utils.dart';
 import 'package:material_palette/locale.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 class SettingsPage extends StatelessWidget {
   const SettingsPage({Key? key}) : super(key: key);
@@ -113,7 +113,7 @@ class SettingsPage extends StatelessWidget {
           title: Text(S.of(context).aboutAppHomepage),
           subtitle: const Text(Constants.homepageUrl),
           leading: const Icon(Icons.home),
-          onTap: () => openUrl(Constants.homepageUrl),
+          onTap: () => Utils.openUrl(Constants.homepageUrl, context),
         ),
         const Divider(),
         BlocBuilder<ProgressIndicatorsCubit, ProgressIndicatorsState>(
@@ -130,12 +130,6 @@ class SettingsPage extends StatelessWidget {
         )
       ],
     );
-  }
-
-  void openUrl(String url) async {
-    await canLaunch(Constants.homepageUrl)
-        ? await launch(Constants.homepageUrl)
-        : throw 'Could not launch ${Constants.homepageUrl}';
   }
 
   void checkUpdates(BuildContext context) async {
@@ -224,7 +218,7 @@ class SettingsPage extends StatelessWidget {
                 Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 20.0),
                     child: ElevatedButton(
-                        onPressed: () => openUrl(info.url),
+                        onPressed: () => Utils.openUrl(info.url, context),
                         child: Text(S.of(context).openWord)))
               ],
             );

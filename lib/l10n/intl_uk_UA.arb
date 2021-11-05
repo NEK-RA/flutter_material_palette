@@ -78,5 +78,6 @@
     "greyColor": "Сірий",
     "ofGreyColor": "сірого",
     "blueGreyColor": "Синьо Сірий",
-    "ofBlueGreyColor": "синьо сірого"
+    "ofBlueGreyColor": "синьо сірого",
+    "cantOpenUrlString": "Не вдається відкрити: {url}"
 }

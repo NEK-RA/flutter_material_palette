@@ -19,13 +19,15 @@ typedef String MessageIfAbsent(String messageStr, List<dynamic> args);
 class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'en_US';
 
-  static String m0(date) => "Published: ${date}";
+  static String m0(url) => "Can\'t open URL: ${url}";
 
-  static String m1(fields) => "Required JSON fields (${fields}) not found!";
+  static String m1(date) => "Published: ${date}";
 
-  static String m2(body) => "Response body:\n${body}";
+  static String m2(fields) => "Required JSON fields (${fields}) not found!";
 
-  static String m3(status) => "Response status: ${status}";
+  static String m3(body) => "Response body:\n${body}";
+
+  static String m4(status) => "Response status: ${status}";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
@@ -44,6 +46,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "blueGreyColor": MessageLookupByLibrary.simpleMessage("Blue Grey"),
         "brownColor": MessageLookupByLibrary.simpleMessage("Brown"),
         "buildWord": MessageLookupByLibrary.simpleMessage("build"),
+        "cantOpenUrlString": m0,
         "closeWord": MessageLookupByLibrary.simpleMessage("Close"),
         "columnCountSettingSubtitle": MessageLookupByLibrary.simpleMessage(
             "Currently between 2 and 3 only, used for both colors and shades grid"),
@@ -112,12 +115,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "orangeColor": MessageLookupByLibrary.simpleMessage("Orange"),
         "pinkColor": MessageLookupByLibrary.simpleMessage("Pink"),
         "prereleaseWord": MessageLookupByLibrary.simpleMessage("Pre-Release"),
-        "publishedAtDate": m0,
+        "publishedAtDate": m1,
         "purpleColor": MessageLookupByLibrary.simpleMessage("Purple"),
         "redColor": MessageLookupByLibrary.simpleMessage("Red"),
-        "requiredFieldsNotFoundString": m1,
-        "responseBody": m2,
-        "responseStatus": m3,
+        "requiredFieldsNotFoundString": m2,
+        "responseBody": m3,
+        "responseStatus": m4,
         "rgbValueOfColorString":
             MessageLookupByLibrary.simpleMessage("RGB value of color"),
         "settings": MessageLookupByLibrary.simpleMessage("Settings"),

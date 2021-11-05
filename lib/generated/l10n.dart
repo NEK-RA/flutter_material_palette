@@ -858,6 +858,17 @@ class S {
       args: [],
     );
   }
+
+  /// `Can't open URL: {url}`
+  String cantOpenUrlString(Object url) {
+    return Intl.message(
+      'Can\'t open URL: $url',
+      name: 'cantOpenUrlString',
+      desc:
+          'Shown in snackbar on settings_page.dart when url_launcher package can\'t launch browser with provided URL',
+      args: [url],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

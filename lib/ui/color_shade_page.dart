@@ -1,5 +1,6 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:material_palette/data/constants.dart';
+import 'package:material_palette/data/utils.dart';
 import 'package:material_palette/locale.dart';
 
 import 'package:flutter/material.dart';
@@ -8,7 +9,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:material_palette/data/cubits/settings/settings_cubit.dart';
 import 'package:material_palette/data/repositories/colors_repository.dart';
 import 'package:material_palette/widgets/color_card.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 class ColorShadesPage extends StatelessWidget {
   final String colorName;
@@ -73,7 +73,7 @@ class ColorShadesPage extends StatelessWidget {
               icon: const Icon(Icons.home_filled),
             ),
             OutlinedButton(
-              onPressed: () => launchHomepage(),
+              onPressed: () => Utils.openUrl(Constants.homepageUrl, context),
               child: Text(S.of(context).githubRepoString)
             )
           ],
@@ -117,12 +117,7 @@ class ColorShadesPage extends StatelessWidget {
     return GridView.count(
       crossAxisCount: itemCount,
       childAspectRatio: ratio,
-        padding: const EdgeInsets.all(8.0),
-        children: colorCardList(vertical: true));
-  }
-
-  void launchHomepage() async {
-    
-    await canLaunch(Constants.homepageUrl) ? await launch(Constants.homepageUrl) : throw 'Could not launch ${Constants.homepageUrl}';
+      padding: const EdgeInsets.all(8.0),
+      children: colorCardList(vertical: true));
   }
 }

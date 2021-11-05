@@ -418,5 +418,16 @@
     "ofBlueGreyColor": "of blue grey",
     "@ofBlueGreyColor": {
       "description": "form of name for using in app bar on the color_shade_page.dart"
+    },
+
+    "cantOpenUrlString": "Can't open URL: {url}",
+    "@cantOpenUrlString": {
+      "description": "Shown in snackbar on settings_page.dart when url_launcher package can't launch browser with provided URL",
+      "placeholders": {
+        "url": {
+          "type": "String",
+          "example": "https://example.com"
+        }
+      }
     }
 }
