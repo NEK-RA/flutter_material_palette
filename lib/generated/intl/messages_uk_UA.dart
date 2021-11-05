@@ -19,6 +19,14 @@ typedef String MessageIfAbsent(String messageStr, List<dynamic> args);
 class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'uk_UA';
 
+  static String m0(date) => "Опубліковано: ${date}";
+
+  static String m1(fields) => "Необхідні поля JSON(${fields}) не знайдені!";
+
+  static String m2(body) => "Тіло відповіді:\n${body}";
+
+  static String m3(status) => "Статус відповіді: ${status}";
+
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "about": MessageLookupByLibrary.simpleMessage("Про додаток"),
@@ -36,6 +44,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "blueGreyColor": MessageLookupByLibrary.simpleMessage("Синьо Сірий"),
         "brownColor": MessageLookupByLibrary.simpleMessage("Коричневий"),
         "buildWord": MessageLookupByLibrary.simpleMessage("збірка"),
+        "closeWord": MessageLookupByLibrary.simpleMessage("Закрити"),
         "columnCountSettingSubtitle": MessageLookupByLibrary.simpleMessage(
             "На даний момент доступні тільки значення від 2 до 3. Вони використовуються для обох сіток"),
         "columnCountSettingTitle":
@@ -74,24 +83,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "lightGreenColor":
             MessageLookupByLibrary.simpleMessage("Світло Зелений"),
         "limeColor": MessageLookupByLibrary.simpleMessage("Лаймовий"),
-        "listOnColorsScreenSettingSubtitleForDisabled":
-            MessageLookupByLibrary.simpleMessage(
-                "Кольори відображаються в вигляді сітки"),
-        "listOnColorsScreenSettingSubtitleForEnabled":
-            MessageLookupByLibrary.simpleMessage(
-                "Кольори відображаються в вигляді списку"),
-        "listOnColorsScreenSettingTitle": MessageLookupByLibrary.simpleMessage(
-            "Відображати список на екрані кольорів"),
-        "listOnShadesScreenSettingSubtitleForDisabled":
-            MessageLookupByLibrary.simpleMessage(
-                "Відтінки відображаються в вигляді сітки"),
-        "listOnShadesScreenSettingSubtitleForEnabled":
-            MessageLookupByLibrary.simpleMessage(
-                "Відтінки відображаються в вигляді списку"),
-        "listOnShadesScreenSettingTitle": MessageLookupByLibrary.simpleMessage(
-            "Відображати список на екрані відтінків"),
+        "noNewUpdatesTitle":
+            MessageLookupByLibrary.simpleMessage("Оновлень не знайдено"),
         "notImplementedString":
             MessageLookupByLibrary.simpleMessage("ЩЕ НЕ РЕАЛІЗОВАНО"),
+        "notLikeReleaseJsonString": MessageLookupByLibrary.simpleMessage(
+            "Не виглядає як JSON-об\'єкт окремого релізу!"),
         "ofAmberColor": MessageLookupByLibrary.simpleMessage("бурштинового"),
         "ofBlueColor": MessageLookupByLibrary.simpleMessage("синього"),
         "ofBlueGreyColor": MessageLookupByLibrary.simpleMessage("синьо сірого"),
@@ -114,10 +111,16 @@ class MessageLookup extends MessageLookupByLibrary {
         "ofRedColor": MessageLookupByLibrary.simpleMessage("червоного"),
         "ofTealColor": MessageLookupByLibrary.simpleMessage("бірюзового"),
         "ofYellowColor": MessageLookupByLibrary.simpleMessage("жовтого"),
+        "openWord": MessageLookupByLibrary.simpleMessage("Відкрити"),
         "orangeColor": MessageLookupByLibrary.simpleMessage("Помаранчевий"),
         "pinkColor": MessageLookupByLibrary.simpleMessage("Рожевий"),
+        "prereleaseWord": MessageLookupByLibrary.simpleMessage("Пререліз"),
+        "publishedAtDate": m0,
         "purpleColor": MessageLookupByLibrary.simpleMessage("Фіолетовий"),
         "redColor": MessageLookupByLibrary.simpleMessage("Червоний"),
+        "requiredFieldsNotFoundString": m1,
+        "responseBody": m2,
+        "responseStatus": m3,
         "rgbValueOfColorString":
             MessageLookupByLibrary.simpleMessage("Значення кольору в RGB"),
         "settings": MessageLookupByLibrary.simpleMessage("Налаштування"),
@@ -127,6 +130,14 @@ class MessageLookup extends MessageLookupByLibrary {
             "Змінити вигляд ( список / сітка )"),
         "systemWordAdjective": MessageLookupByLibrary.simpleMessage("Системна"),
         "tealColor": MessageLookupByLibrary.simpleMessage("Бірюзовий"),
+        "unexpectedReponseString":
+            MessageLookupByLibrary.simpleMessage("Неочікувана відповідь!"),
+        "updateErrorReceivedTitle": MessageLookupByLibrary.simpleMessage(
+            "Помилка при перевірці оновлень"),
+        "updateFoundTitle":
+            MessageLookupByLibrary.simpleMessage("Знайдено оновлення"),
+        "usingLatestVersion": MessageLookupByLibrary.simpleMessage(
+            "Ви використовуєте останню версію"),
         "yellowColor": MessageLookupByLibrary.simpleMessage("Жовтий")
       };
 }
