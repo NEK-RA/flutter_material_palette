@@ -10,6 +10,28 @@ Also there is available web version: [https://nek-ra.github.io/flutter_material_
 
 P.S.: It's available because Flutter can provide web output while all project dependecies have web support.
 
+## Download
+
+**IMPORTANT**: App not yet optimized for wide screens!
+
+### Android
+
+For android device you can use [Google Play](https://play.google.com/store/apps/details?id=io.github.nek_ra.material_palette) or [Github Releases](https://github.com/NEK-RA/flutter_material_palette/releases).
+
+While Google Play uses AppBundle files (result is split-apk on device), Github Releases contain standard apk files for ARMv7 (32-bit), ARMv8a (64-bit) and x86_64 (64-bit).
+
+### Windows
+
+**Flutter supported only 64-bit Windows 7+**, and now app didn't published to MS Store or anywhere else. 
+
+ZIP archive with app is provided in [Github Releases](https://github.com/NEK-RA/flutter_material_palette/releases). ZIP file also contain shortcut to `%appdata%\https___nek-ra.github.io` - here will be folder `Material Palette` with file `shared_preferences.json`, where stored all settings of the app.
+
+Unzipped folder with all app files weights about 22MB.
+
+### Linux
+
+Didn't experimented yet with linux builds. Info here will be updated soon.
+
 ## Warning
 
 I'm using this project to learn Flutter and few related packages. That's why something may be wrong or anything else. If you found anything like that - welcome to issues :)
