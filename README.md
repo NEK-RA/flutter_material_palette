@@ -30,7 +30,23 @@ Unzipped folder with all app files weights about 22MB.
 
 ### Linux
 
-Didn't experimented yet with linux builds. Info here will be updated soon.
+Project was built on Linux Mint 20.1 (Cinnamon desktop) and works fine.
+
+I added archive with linux build to [Github Releases](https://github.com/NEK-RA/flutter_material_palette/releases). It is a `tar.gz` archive. Inside it contain built project and a `README.txt` where described location of settings file (`$HOME/.local/share/flutter_material_palette`) as well as required libraries, which are:
+
+- libgtk-3-0
+- libblkid1
+- liblzma5
+
+For Debian based distros install them by
+
+```sh
+sudo apt install libgtk-3-0 libblkid1 liblzma5
+```
+
+Notice: They're required by any Flutter project. Look here - [https://flutter.dev/desktop#linux](https://flutter.dev/desktop#linux)
+
+P.S.: Not yet experimented with linux packages, but I guess I will prefer to try for the `AppImage` firstly. As soon as I'll finish experiments with it I'll publish also AppImage package to releases.
 
 ## Warning
 
