@@ -1,6 +1,6 @@
 # material_palette
 
-<img src="media/icon/Icon.svg" alt="app icon" style="width: 256px;" />
+<img src="media/icon/Icon-maskable-small.png" alt="app icon"/>
 
 A color palette from Flutter's predefined material colors. Yes, yet another color palette.
 
