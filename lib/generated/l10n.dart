@@ -302,7 +302,7 @@ class S {
   }
 
   /// `Published: {date}`
-  String publishedAtDate(Object date) {
+  String publishedAtDate(String date) {
     return Intl.message(
       'Published: $date',
       name: 'publishedAtDate',
@@ -372,7 +372,7 @@ class S {
   }
 
   /// `Response status: {status}`
-  String responseStatus(Object status) {
+  String responseStatus(String status) {
     return Intl.message(
       'Response status: $status',
       name: 'responseStatus',
@@ -383,7 +383,7 @@ class S {
   }
 
   /// `Response body:\n{body}`
-  String responseBody(Object body) {
+  String responseBody(String body) {
     return Intl.message(
       'Response body:\n$body',
       name: 'responseBody',
@@ -404,7 +404,7 @@ class S {
   }
 
   /// `Required JSON fields ({fields}) not found!`
-  String requiredFieldsNotFoundString(Object fields) {
+  String requiredFieldsNotFoundString(String fields) {
     return Intl.message(
       'Required JSON fields ($fields) not found!',
       name: 'requiredFieldsNotFoundString',
@@ -860,7 +860,7 @@ class S {
   }
 
   /// `Can't open URL: {url}`
-  String cantOpenUrlString(Object url) {
+  String cantOpenUrlString(String url) {
     return Intl.message(
       'Can\'t open URL: $url',
       name: 'cantOpenUrlString',
