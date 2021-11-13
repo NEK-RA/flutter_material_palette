@@ -1,4 +1,4 @@
-# material_palette
+# Material Palette 1.1.0+2
 
 <img src="media/icon/Icon-maskable-small.png" alt="app icon"/>
 
@@ -9,6 +9,10 @@ Few demo gifs are here: [media/demos](media/demos)
 Also there is available web version: [https://nek-ra.github.io/flutter_material_palette/](https://nek-ra.github.io/flutter_material_palette/)
 
 P.S.: It's available because Flutter can provide web output while all project dependecies have web support.
+
+## Warning
+
+I'm using this project to learn Flutter and few related packages. That's why something may be wrong, incorrect and so on. If you found any problem or have advices how to improve app - welcome to issues :)
 
 ## Download
 
@@ -30,9 +34,11 @@ Unzipped folder with all app files weights about 22MB.
 
 ### Linux
 
-Project was built on Linux Mint 20.1 (Cinnamon desktop) and works fine.
+Project was built on Linux Mint 20.1 (Cinnamon desktop).
 
-I added archive with linux build to [Github Releases](https://github.com/NEK-RA/flutter_material_palette/releases). It is a `tar.gz` archive. Inside it contain built project and a `README.txt` where described location of settings file (`$HOME/.local/share/flutter_material_palette`) as well as required libraries, which are:
+AppImage package was added to [Github Releases](https://github.com/NEK-RA/flutter_material_palette/releases) at 12th November of 2021. Currently I don't plan to package it into other formats. If you wish more package formats - welcome to issues :)
+
+Also I added archive with binaries (as is, not packaged) to [Github Releases](https://github.com/NEK-RA/flutter_material_palette/releases). It is a `tar.gz` archive. Inside it contain built project and a `README.txt` where described location of settings file (`$HOME/.local/share/flutter_material_palette`) as well as required libraries, which are:
 
 - libgtk-3-0
 - libblkid1
@@ -45,12 +51,6 @@ sudo apt install libgtk-3-0 libblkid1 liblzma5
 ```
 
 Notice: They're required by any Flutter project. Look here - [https://flutter.dev/desktop#linux](https://flutter.dev/desktop#linux)
-
-P.S.: Not yet experimented with linux packages, but I guess I will prefer to try for the `AppImage` firstly. As soon as I'll finish experiments with it I'll publish also AppImage package to releases.
-
-## Warning
-
-I'm using this project to learn Flutter and few related packages. That's why something may be wrong or anything else. If you found anything like that - welcome to issues :)
 
 ### Initial commit
 
@@ -66,21 +66,21 @@ I'm using this project to learn Flutter and few related packages. That's why som
 ### Next steps
 
 - [x] ~~Copy HEX value of color when pressing concrete shade~~ Done, showing 3sec snackbar notification after copying
-- [x] ~~Add "Settings" page with switches for settings~~ Settings can be opened from colors screen by settings button in the app bar
-- [x] ~~Check if grid with 3 columns will work nice. If yes, then add ability to increase columns count in settings~~ In settings can be changed by slider. Now values limited between 2 and 3
-- [x] ~~Add "About" page or probably add such section into settings~~ "About" added into Settings screen.
-- [x] ~~Add support for few languages by official [flutter_localizations](https://flutter.dev/docs/development/accessibility-and-localization/internationalization) package~~ App supports for english and russian
-- [x] ~~Create an icon for the app~~ done
-- [x] ~~Add ability to specify language in settings~~ done
-- [x] ~~Add [url_launcher](https://pub.dev/packages/url_launcher) package to be able forward user to browser for the specified url (repo url, update url and etc)~~ done, currently opening only homepage with that.
+- [x] ~~Add "Settings" page with switches for settings~~ Done, "Settings" screen can be opened from colors screen by settings button in the app bar
+- [x] ~~Check if grid with 3 columns will work nice. If yes, then add ability to increase columns count in settings~~ Done, in settings can be changed by slider. Now values limited between 2 and 3
+- [x] ~~Add "About" page or probably add such section into settings~~ Done, "About" added into "Settings" screen.
+- [x] ~~Add support for few languages by official [flutter_localizations](https://flutter.dev/docs/development/accessibility-and-localization/internationalization) package~~ Done
+- [x] ~~Create an icon for the app~~ Done
+- [x] ~~Add ability to specify language in settings~~ Done
+- [x] ~~Add [url_launcher](https://pub.dev/packages/url_launcher) package to be able forward user to browser for the specified url (repo url, update url and etc)~~ Done
 - [x] ~~Instead of copying HEX value, open dialog where few next color's representations will be shown:~~
 
-  - ~~HEX value~~ done
-  - ~~RGB value with alpha channel value~~ done RGB only, because alpha channel (for rgba) is not used at all, so there's no transparent colors
-  - ~~Flutter's variable (i.e. `Colors.red[400]` or `Colors.blueGrey.shade500`)~~ done
+  - ~~HEX value~~ Done
+  - ~~RGB value with alpha channel value~~ Done RGB only, because alpha channel (for rgba) is not used at all (always `255` value), so there's no transparent colors
+  - ~~Flutter's variable (i.e. `Colors.red[400]` or `Colors.blueGrey.shade500`)~~ Done
 
-- [x] ~~Add update checks with [http](https://pub.dev/packages/http) package~~ done
-- [ ] Create AppImage build for Linux
+- [x] ~~Add update checks with [http](https://pub.dev/packages/http) package~~ Done
+- [x] ~~Create AppImage build for Linux~~ Done, about 25MB size reached
 - [ ] Add check for available screen width to adjust ColorCard size for that and allow set limit for columns in grid depending on that info
 - [ ] **IMOPRTANT** learn testing
 - [ ] **Probably** return FloatingActionButton widget instead of IconButton in the AppBar, but this required animation.
