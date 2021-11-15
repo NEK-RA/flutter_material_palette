@@ -29,23 +29,28 @@ class UpdatesRepository {
   }
 
   static Update _processResponse(http.Response response, BuildContext context){
-    // single release in response is single JSON object
-    if(response.body.startsWith('{') && response.body.endsWith('}')){
-      Map<String, dynamic> parsed = jsonDecode(response.body);
-
-      if(_validateReleaseMap(parsed)){
-        return GithubUpdate(
-          version: parsed['tag_name'],
-          published: parsed['published_at'],
-          isPreRelease: parsed['prerelease'],
-          description: parsed['body'],
-          url: parsed['html_url']
-        );
+    try{
+      Object parsed = jsonDecode(response.body);
+      if(parsed is Map<String, dynamic>){
+        if(_validateReleaseMap(parsed)){
+          return GithubUpdate(
+            version: parsed['tag_name'],
+            published: parsed['published_at'],
+            isPreRelease: parsed['prerelease'],
+            description: parsed['body'],
+            url: parsed['html_url']
+          );
+        }else{
+          return UpdateError(status: '${response.statusCode} - ${response.reasonPhrase}', message: S.of(context).requiredFieldsNotFoundString('tag_name, published_at, prerelease, body, html_url'), body: response.body);
+        }
       }else{
-        return UpdateError(status: '${response.statusCode} - ${response.reasonPhrase}', message: S.of(context).requiredFieldsNotFoundString('tag_name, published_at, prerelease, body, html_url'), body: response.body);
+        return UpdateError(status: '${response.statusCode} - ${response.reasonPhrase}', message: S.of(context).notLikeReleaseJsonString, body: response.body);
       }
-
-    } else {
+    }on FormatException{
+      // when the logging will be added to app
+      // need to replace on FormatException{
+      // with on FormatException catch(error){
+      // and add error to the log
       return UpdateError(status: '${response.statusCode} - ${response.reasonPhrase}', message: S.of(context).notLikeReleaseJsonString, body: response.body);
     }
   }

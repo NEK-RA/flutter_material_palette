@@ -109,6 +109,7 @@ class SettingsPage extends StatelessWidget {
   Widget about(BuildContext context) {
     return Column(
       children: [
+        const SizedBox(height: 8),
         ListTile(
           title: Text(S.of(context).aboutAppHomepage),
           subtitle: const Text(Constants.homepageUrl),
