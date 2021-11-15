@@ -15,7 +15,7 @@ AppDir:
     id: io.github.nek_ra.material_palette
     name: Material Palette
     icon: icon
-    version: 1.1.0+2
+    version: 1.1.2+4
     exec: flutter_material_palette
     exec_args: $@
   apt:
