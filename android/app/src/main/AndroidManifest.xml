@@ -1,5 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="io.github.nek_ra.material_palette">
+    <uses-permission android:name="android.permission.INTERNET"/>
     <queries>
       <!-- To open https URLs -->
       <intent>
