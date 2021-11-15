@@ -1,4 +1,4 @@
-# Material Palette 1.1.0+2
+# Material Palette 1.1.2+4
 
 <img src="media/icon/Icon-maskable-small.png" alt="app icon"/>
 
